@@ -1,0 +1,53 @@
+.program-section{
+    padding-bottom: 0px;
+}
+.progarm-section1{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.time-section{
+    /* background-color: aqua; */
+    display:flex;
+    justify-content: center;
+    height: 100px;
+    width: 500px;
+    position:relative;
+    left: 430px;
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+}
+.time{
+    border: 1px solid rgb(214, 220, 226);
+    height: 80px;
+    width: 90px;
+    margin-left: 20px;
+    padding-top: 5px;
+    border-radius: 20px;
+    background-color: rgb(214, 220, 226);
+    
+}
+
+@media only screen and (max-width: 767px) {
+    .time-section{
+        position:relative;
+        left: 0px;
+        height: auto;
+        width: auto;
+    }
+    .time{
+        margin-left: 5px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .time-section{
+        position:relative;
+        left: 0px;
+        height: auto;
+        width: auto;
+    }
+}
+@media only screen and (min-width: 1025px) {
+   
+}

@@ -1,0 +1,73 @@
+.progarm-section{
+    padding-right: 0px;
+    padding-left: 0px;
+    /* padding-bottom: 20px; */
+    padding-top: 60px;
+   
+}
+.program-title{
+    margin-bottom: 40px;
+}
+.card3{
+    border: 1px solid rgb(255, 212, 212);
+    height: 400px;
+    width: 310px;
+    margin: 10px;
+    background-color: rgb(36, 32, 83);
+    box-shadow: 5px 5px 10px  rgb(36, 32, 83); 
+    color:white;
+    border-style: none;
+    border-radius: 10px;
+    word-spacing: 2px;
+    padding: 10px 15px 10px 15px;
+    font-family: "Nunito", sans-serif; 
+}
+.card3 h1{
+    color: rgb(40, 40, 43);
+    background-color: rgb(145, 235, 142);
+    width:100px;
+    border-radius: 10px;
+    
+    line-height: 1cm;
+}
+.card3 h3{
+    font-size: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+.card3 ul li{
+    text-align: left;
+    list-style-type: none;
+    padding-left: 10px;
+}
+.card3 ul li i{
+    color:rgb(145, 235, 142);
+}
+.program-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    line-height: 1cm;
+}
+@media only screen and (max-width: 767px) {
+    .card3{
+        height: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+   
+    /*.card3 h1{
+       
+        line-height:0.7cm;
+    }
+    .card3 h3{
+        line-height:0.7cm;
+
+    }*/
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+@media only screen and (min-width: 1025px) {
+   
+}

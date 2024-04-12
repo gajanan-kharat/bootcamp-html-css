@@ -1,0 +1,55 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+/*---------- Hedear Section -------------*/
+header{
+    border: 1px solid black;
+    text-align: center;
+    background: #023047;
+    color: white;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Nunito", sans-serif;
+
+
+}
+.start{
+    display: inline-block; 
+}
+.enroll-btn{
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    margin-left: 10px;
+    border-radius: 50px;
+    border-color:rgb(58, 181, 46);
+    background-color:  rgb(58, 181, 46);
+    color:aliceblue;
+ 
+}
+.owl-carousel .owl-item img{
+    width: 90%;
+}
+/* For mobile devices (portrait and landscape) */
+@media only screen and (max-width: 767px) {
+    header{
+        font-size: 10px;
+    }
+    .enroll-btn{
+        padding: 5px 5px 5px 5px;
+        font-size: 10px;
+    }
+    
+    
+  }
+  /* For tablets like iPads (portrait and landscape) */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+ 
+  }  
+  /* For laptops and desktops */
+@media only screen and (min-width: 1025px) {
+   
+  }
+
+ 

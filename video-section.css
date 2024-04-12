@@ -1,0 +1,218 @@
+ /*-----video Section -----*/
+ .VideoSection{
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+    background-color: aliceblue;
+    font-family: "Nunito", sans-serif;
+  
+ }
+ .video-section{
+    top: 10px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .Title1{
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+   }
+   .Title2{
+    font-size: 1.3rem;
+    font-weight:lighter;
+    color:rgb(212, 42, 42);
+    }
+    .title-section1{
+        padding-top: 50px;
+        padding-left: 20px;
+        line-height: 1.5cm;
+    }
+    .display-video{
+        position: relative;
+        left:0px;
+        border-radius: 10px;
+       
+    }
+    .detail-section{
+        position: relative;
+        left: 20%;
+        /* border: 1px solid #023047; */
+        width:60%;
+        /* height: 100%; */
+        margin:20px;
+        background: #023047;
+        border-radius: 20px;
+        color:white;
+    }
+    .info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .boot{
+       
+        width:195px;
+        padding: 15px;
+        margin: 10px;
+        background:#02486b;
+        box-shadow: 5px 5px 10px #02486b;
+        color:white;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        
+    }
+.title-section{
+    margin:20px;
+}
+.developer-section{
+    display:flex;
+    position: relative;
+    top:20px;
+    height: 160px;
+    /* flex-wrap: wrap; */
+    padding-left: 20px;
+    padding-left: 20px;
+    text-align: start;
+
+}
+.img1{
+    border-radius: 15%;
+    margin-left: 20px;
+   
+
+}
+.GKTitle{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1cm;
+}
+.information{
+    margin:10px 32px 32px 32px;
+   
+}
+.btn{
+    width: 785px;
+    height: 60px;
+    margin-left: 40px;
+   background-color:  rgb(58, 181, 46);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    border: 2px solid rgb(58, 181, 46);
+}
+.small-text{
+    font-size: 15px;
+}
+@media only screen and (max-width: 360px) {
+    .VideoSection .detail-section{
+        width:auto;
+        height: 900px !important;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .display-video{
+        width:auto;
+        height: auto;
+    }
+    .detail-section{
+        position: relative;
+        left:0%;
+        width:auto;
+        height: 850px !important;
+        background: #023047;
+        border-radius: 20px;
+        color:white;
+       
+    }
+    .img1{
+        margin-left: 0px; 
+    }
+    .developer-section
+    {
+        top:15px;
+       flex-wrap: wrap; 
+      text-align: center;
+      justify-content: center;
+    }
+    
+    .btn{
+        width: 330px;
+        font-size: 15px;
+        font-weight: bold;
+        height: 70px;
+        margin-left: 0px;
+    }
+    .GKTitle{
+        line-height: normal;
+    }
+    .title-section1{
+        padding-top: 10px;
+    }
+    .VideoSection{
+        padding-top: 10px;
+        padding-bottom: 0px;
+    }
+    
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .detail-section{
+        position: relative;
+        left:0%;
+        width:auto;
+        height: 470px;
+        background: #023047;
+        border-radius: 20px;
+        color:white;
+       
+    }
+    .title-section1{
+        padding-top: 20px;
+    }
+
+    .display-video {
+        max-width: 100%; 
+        height: 300px;
+    }
+    .img1{
+        /* margin-left: 140px; */
+        height:100px; 
+       
+    }
+    .developer-section
+    {
+        top:25px;
+     flex-wrap: wrap;
+     justify-content: center;
+    }
+
+    .boot {
+        width:140px;
+    }
+    .detail-section{
+        padding: 10px;
+    }
+    .btn{
+        width: 500px;
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 0px;
+    }
+    .information{
+        text-align: center;
+    }
+    
+} 
+
+@media only screen and (min-width: 1025px) {
+   
+}

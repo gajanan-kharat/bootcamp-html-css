@@ -1,0 +1,59 @@
+.progarm-section{
+    text-align: center;
+    padding: 45px 20px 20px 20px;
+    background-color: aliceblue;
+   
+
+}
+.program-title{
+    font-size: 35px;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+}
+.card-img{
+    width: 60px;
+    height: 60px;
+}
+.card{
+    border: 1px solid rgb(255, 212, 212);
+    height: 200px;
+    width: 360px;
+    margin: 20px;
+    background-color: rgb(223, 243, 243);
+    border-style: none;
+    border-radius: 10px;
+    word-spacing: 2px;
+    padding: 10px 20px 20px 20px;
+    font-family: "Nunito", sans-serif; 
+}
+.card h3{
+    font-size: 20px;
+    /* line-height: 0.8cm; */
+}
+.program-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media only screen and (max-width: 767px) {
+    .card{
+        height: 235px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .card h3{
+        line-height:normal;
+    }
+    .card p{
+        /* line-height:0.7cm; */
+
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .card{
+        height: 220px;
+    }
+}
+@media only screen and (min-width: 1025px) {
+   
+}

@@ -1,0 +1,29 @@
+.stories-section{
+    margin-top: 10px;
+}
+.display-video1{
+    margin-top: 40px;
+    margin-right: 40px;
+}
+@media only screen and (max-width: 767px) {
+    .progarm-section{
+        /* padding-bottom: 20px; */
+    }
+    .display-video1{
+        margin-right: 0px;
+        margin-top: 10px;
+        height:auto;
+        width: auto;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .display-video1{
+        margin-right: 20px;
+        margin-top: 20px;
+        height:auto;
+        width: auto;
+    }
+    
+}
