@@ -19,22 +19,57 @@
     height: 200px;
     width: 360px;
     margin: 20px;
-    background-color: rgb(223, 243, 243);
+    /* background-color: rgb(223, 243, 243); */
     border-style: none;
     border-radius: 10px;
-    word-spacing: 2px;
+    /* word-spacing: 2px; */
     padding: 10px 20px 20px 20px;
     font-family: "Nunito", sans-serif; 
+    transition: transform 0.8s;
+}
+.card:hover{
+    transform: scale(1.1);
 }
 .card h3{
     font-size: 20px;
     /* line-height: 0.8cm; */
 }
-.program-card{
+#card-color1{
+    background-color: rgb(223, 243, 243);
+}
+#card-color2{
+    background-color: rgb(232, 223, 243);
+}
+#card-color3{
+    background-color: rgb(243, 236, 223);
+}
+#card-color4{
+    background-color: rgb(223, 232, 243);
+}
+#card-color5{
+    background-color: rgb(221, 248, 213);
+}
+#card-color6{
+    background-color: rgb(206, 245, 230);
+}
+#card6{
+    border-radius: 50%;
+}
+
+
+.progarm-section .program-card{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    line-height: 0.9cm;
+    margin-top: 30px;
 }
+@media only screen and (max-width: 360px){
+    .progarm-section .program-card {
+        line-height: 0.8cm;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .card{
         height: 235px;
@@ -44,10 +79,7 @@
     .card h3{
         line-height:normal;
     }
-    .card p{
-        /* line-height:0.7cm; */
-
-    }
+    
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .card{
