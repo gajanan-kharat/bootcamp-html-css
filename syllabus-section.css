@@ -1,7 +1,7 @@
 .syllabus-section{
     text-align: center;
     padding: 45px 20px 20px 0px;
-    background-color: aliceblue;
+    background-color:#f0f8ff;
    
 }
 .syllabus-title{
@@ -9,59 +9,71 @@
     font-weight: bold;
     font-family: "Nunito", sans-serif;
 }
-.card3{
-    border: 1px solid rgb(255, 212, 212);
-    height: 400px;
-    width: 310px;
-    margin: 20px;
-    /* background-color: rgb(36, 32, 83); */
-    background-color:#454545;
-    color: white;
-    box-shadow: 5px 5px 10px #454545;
-    color:white;
-    border-style: none;
-    border-radius: 10px;
-    word-spacing: 2px;
-    padding: 10px 15px 10px 15px;
-    font-family: "Nunito", sans-serif; 
-    transition: transform 0.8s;
-}
-.card3:hover{
-    transform: scale(1.1);
-}
-.card3 .day{
-    color: rgb(46, 46, 49); 
-    /*background-color: rgb(145, 235, 142); */
-    background-color: rgb(241, 165, 22);
-    /* background: #009378;  */
-    /* background-color: rgb(97, 94, 89); */
-    color: white;
-    width:100px;
-    border-radius: 10px;
-    line-height: 1cm;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.card3 h3{
-    font-size: 20px;
-    text-align: left;
-    padding-left: 10px;
-}
-.card3 ul li{
-    text-align: left;
-    list-style-type: none;
-    padding-left: 10px;
-}
-.card3 ul li i{
-    color:rgb(145, 235, 142);
-}
 .syllabus-card{
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
     line-height: 1cm;
     margin-top: 40px;
+    align-items: center;
 }
+.card3{
+    border: 1px solid rgb(255, 212, 212);
+    height: auto;
+    width: 310px;
+    margin: 20px;
+    background-color:#454545;
+    color: #ffffff;
+    box-shadow: 5px 5px 10px #454545;
+    color:#ffffff;
+    border-style: none;
+    border-radius: 10px;
+    word-spacing: 2px;
+    padding: 20px 20px;
+    font-family: "Nunito", sans-serif; 
+    transition: transform 0.8s;
+    text-align: center;
+}
+.day-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card3 .day{
+    color: rgb(46, 46, 49); 
+    background-color: #ffa500;
+    color: white;
+    width:100%;
+    padding: 10px 0px;
+    border-radius: 10px;
+    line-height: 1cm;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+}
+.card3 h3{
+    font-size: 20px;
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+.card3 ul li{
+    text-align: left;
+    list-style-type: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+.card3 ul li i{
+    color:rgb(145, 235, 142);
+}
+.card3:hover{
+    transform: scale(1.1);
+}
+
 @media only screen and (max-width: 360px) {
     .syllabus-section .syllabus-card .card3{
         padding-left: 15px;
@@ -79,20 +91,12 @@
         padding-right: 0px;
         padding-top:30px;
     }
+    .syllabus-title {
+        font-size: 32px;
+    }
     .card3:hover{
         transform: scale(1.1);
     }
-
-    
-   
-    /*.card3 h1{
-       
-        line-height:0.7cm;
-    }
-    .card3 h3{
-        line-height:0.7cm;
-
-    }*/
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .syllabus-title{

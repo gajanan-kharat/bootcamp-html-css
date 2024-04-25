@@ -1,7 +1,7 @@
 .timecount-section{
     text-align: center;
     padding: 45px 20px 80px 0px;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,11 +17,9 @@
     justify-content: center;
     align-items: center;
     height: 100px;
-    /* width: 500px; */
     font-family: "Nunito", sans-serif;
     text-align: center;
     flex-wrap: wrap;
-    /* margin-left: 350px; */
     margin-top: 40px;
 }
 .time{
@@ -32,7 +30,7 @@
     margin-left: 20px;
     padding-top: 15px;
     border-radius: 20px;
-    background-color:  orange;    
+    background-color: #ffa500;  
 }
 .hurry {
     animation: zoom 1s ease-in-out infinite;
@@ -68,6 +66,9 @@
         margin-left: 0px;
         height: auto !important;
         width: auto !important;
+    }
+    .time-title {
+        font-size: 32px;
     }
     .time{
         margin-left: 5px;

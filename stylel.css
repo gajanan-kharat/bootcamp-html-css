@@ -2,12 +2,15 @@
     margin:0px;
     padding:0px;
 }
+html,body{
+    /* overflow-x: hidden; */
+}
 /*---------- Hedear Section -------------*/
 header{
-    border: 1px solid black;
+    border: 1px solid #000000;
     text-align: center;
     background-color:rgb(43, 36, 36);
-    color: white;
+    color: #ffffff;
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -21,16 +24,17 @@ header{
 }
 .enroll-btn{
     display: inline-block;
-    padding: 10px 30px 10px 30px;
+    font-family: "Nunito", sans-serif;
+    padding: 7px 20px;
     margin-left: 10px;
     border-radius: 50px;
     border: none;
-    box-shadow: 2px 2px 10px aliceblue;
-    background-color:  orange;
-    color:aliceblue;
-    font-size: 1rem;
+    box-shadow: 2px 2px 10px #f0f8ff;
+    background-color: #ffa500;
+    color:#f0f8ff;;
+    font-size: 1.2rem;
     font-weight: bold;
-    transition: transform 0.5s, background-color 2s;
+    transition: transform 0.5s, background-color 1s;
 }
 /* Button hover effect */
 .enroll-btn:hover {
@@ -42,7 +46,9 @@ header{
 .enroll-btn:active {
     background-color: #009378; 
     transform: scale(0.9);
+    /* transform-origin: top left;  */
 }
+
 /* .owl-carousel */
 .owl-carousel {
     overflow-x: hidden;
@@ -58,25 +64,26 @@ header{
 }
 /* For mobile devices (portrait and landscape) */
 @media only screen and (max-width: 767px) {
+    html,body{
+        overflow-x: hidden;
+    }
     header{
-        font-size: 10px;
+        font-size: 12px;
+        font-weight: bold;
     }
     .hmtlcss{
         display: none;
     }
     .enroll-btn{
-        padding: 5px 5px 5px 5px;
-        font-size: 10px;
+        padding: 5px 10px;
+        font-size: 15px;
         margin-left: 5px;
+        
     }
     .owl-theme .owl-dots{
         display:none;
     }
-    .enroll-btn:active {
-        background-color: #009378; 
-        transform: scale(0.5);
-    }
-   
+    
  }
   /* For tablets like iPads (portrait and landscape) */
   @media only screen and (min-width: 768px) and (max-width: 1024px) {

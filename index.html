@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> CODEMIND</title>
-    <link rel="icon" type="image/x-icon" href="images/cm-logo.ico">
+    <link rel="icon" type="image/x-icon" href="images/codemind-img/cm-logo.ico">
     <!-- Style Owl curosel-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,6 +32,9 @@
     <link rel="stylesheet" type="text/css" href="faq.css">
     <link rel="stylesheet" type="text/css" href="copyRight-Section.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="popup-section.css">
+    <link rel="stylesheet" type="text/css" href="popup1-section.css">
+
 </head>
 <body>
     <!-- header Section -->
@@ -44,10 +47,13 @@
     <div class="VideoSection">
         <div class="video-section">
             <div class="title-section">
-                        <iframe  class="display-video" src="https://www.youtube.com/embed/yRpLlJmRo2w?si=4XkKGmjF01t8iFrB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ></iframe>
+                <div class="video-gallery">
+                    <a href="javascript:void(0);" class="youtube-link" youtubeid="yRpLlJmRo2w?si=4XkKGmjF01t8iFrB"></a>
+                         <iframe class="display-video" src="https://www.youtube.com/embed/yRpLlJmRo2w?si=4XkKGmjF01t8iFrB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                 </div>
             </div>
             <div class="title-section1">
-                <p class="Title1">Learn the website development in <span style="color:orange;"> just 3 days</span> to create your own protflio & make design like Instagram, chatGPT & Youtube.</span> </p>
+                <p class="Title1">Learn the website development in <span style="color:#ffa500;"> just 3 days</span> to create your own protflio & make design like Instagram, chatGPT & Youtube.</span> </p>
                 <h4><span class="Title2">The must have bootcamp to quick start your Web development.</span></h4>
              </div>
         </div>
@@ -61,103 +67,94 @@
                     <div class="boot"> Live Sessions</div>
             </div>
         </div>
-            <!--<div class="developer-section">
-                <div class="image">
-                    <img  class="img1"src="images/developer.jpg" height="120px" width="110px">
-                </div>
-                <div class="information">
-                    <p class="GKTitle">GK Sir - CEO & Passionate Instructor</p>
-                    <p class="infomation1">I am NRI with having 10+ years of IT experience as full stack developer, passionate instructor, & currently working technical manager in MNC. I Love unveiling the magic of code & to sparks flames of creativity in eager minds</p>
-                </div>
-            </div>-->
         <div>
             <button class="btn">Enroll Now just at Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
         </div>
     </div>
-
-    <!-- Designed Flexible program -->
+   <!-- JQuery link -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="files/youtube-popup.css">
+  <link rel="stylesheet" href="files/grt-youtube-popup.css">
+   <script src="files/grt-youtube-popup.js"></script>
+   <script type="text/javascript">
+       $(".youtube-link").grtyoutube({
+           autoplay:true,
+           theme:"dark"
+       });
+   </script>
+   
+   <!-- Designed Flexible program -->
     <div class="progarm-section">
         <div class="program-title">
-            <p> We have designed Master <span style="color:orange;">Boot</span>Camp <br>Specially for you </p>
+            <p> We have designed Master <span class="boot-word">Boot</span>Camp <br>Specially for you </p>
         </div>
         <div class="program-card">
             <div id="card-color1" class="card">
-                <img class="card-img" src="images/project-img.webp">
+                <img class="card-img" src="images/card-img/project-img.webp">
                <h3>10 Projects for graduates with code</h3> 
                <p>The best projects to learn step by step & master the web development</p>
             </div>
             <div id="card-color2" class="card">
-                <img  class="card-img" src="images/logical-img1.png">
+                <img  class="card-img" src="images/card-img/logical-img.png">
                 <h3>50 IMP Logical questions</h3> 
                 <p>The most important logical questions that's been asked in technical interview</p> 
             </div>
             <div id="card-color3" class="card">
-                <img class="card-img" src="images/resume-img.png">
+                <img class="card-img" src="images/card-img/resume-img.png">
                 <h3>Catchy resume Temaplates</h3> 
                 <p>get the catchy resume templates with most efficacy in interview selection</p>
             </div>
             <div id="card-color4" class="card">
-                <img  class="card-img" src="images/project-img2.webp">
+                <img  class="card-img" src="images/card-img/project-img1.webp">
                 <h3>Project Based Learning</h3> 
                 <p>One line of code at a time through hands on projects, where learning meets real world-applications</p>
             </div>
             <div id="card-color5" class="card">
-                <img class="card-img" src="images/certificate-icon1.png">
+                <img class="card-img" src="images/card-img/certificate-icon.png">
                 <h3>Get certificate!</h3> 
                 <p>Join us noww our bootcamp to earn your free certificate & showcase your expertise on our esteemed platform</p>
             </div>
             <div id="card-color6" class="card">
-                <img class="card-img" id="card6" src="images/liveclas- image.jpg">
+                <img class="card-img" id="card6" src="images/card-img/liveclas- image.jpg">
                 <h3>All Live Sessions!</h3>
                 <p>Elevate your skills with real-time instruction - join our live sessions for an immersive learning experience & clear your doubts instantly </p>
             </div>
         </div>
-    </div>
+    </div> 
 
-        <!-- Success Stories -->
-        <div class="stories-section" >
-            <div class="stories-title">
-                <p> Success Stories from the course Students </p>
-            </div>
-            <div class="owl-carousel-section1"> 
-                <div class="owl-carousel owl-carousel1 owl-theme">
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=6OmMTxg2H9oZEOeR" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=uVQ8oJsNbEoSqLL3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/P9iIfrMkHAs?si=ojSpH_gPypUasyfA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/PqfVoMNWa1s?si=59jftaedHiVKi0fd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=6OmMTxg2H9oZEOeR" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=uVQ8oJsNbEoSqLL3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/P9iIfrMkHAs?si=ojSpH_gPypUasyfA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    <div class="item" >
-                        <iframe class="display-video1" src="https://www.youtube.com/embed/PqfVoMNWa1s?si=59jftaedHiVKi0fd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+     <!-- Success Stories -->
+    <div class="stories-section" >
+        <div class="stories-title">
+            <p> Success Stories from the course Students </p>
+        </div>
+        <div class="owl-carousel-section1"> 
+            <div class="owl-carousel owl-carousel1 owl-theme">
+                <div class="item" >
+                    <iframe class="display-video1" src="https://www.youtube.com/embed/w-sOohyvnvk?si=5ppzE1VJ0TOv6ajC"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="item" >
+                    <iframe class="display-video1" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="item" >
+                    <iframe class="display-video1" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=roySfIMXqiJB_SkJ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="item" >
+                    <iframe class="display-video1" src="https://www.youtube.com/embed/P9iIfrMkHAs?si=_4F-dk_VdEBhjscI"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
-        <!-- Modal Structure -->
-        <div id="videoModal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" id="closeModalBtn">&times;</span>
-                <iframe id="modalVideo" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=6OmMTxg2H9oZEOeR" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <iframe id="modalVideo" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <!-- popup js file-->
-        <script src="popup.js"></script>
-          
+    </div>
+    <!-- popup js file-->
+    <script src="popup.js"></script> 
+
+       
       <!-- Offer-Letter Section-->
        <div class="document-section" >
         <div class="document-title">
@@ -167,43 +164,43 @@
              <!-- owl curosel -->
             <div class="owl-carousel owl-carousel1 owl-theme">
                 <div class="item">  
-                    <a href="images/Akshay Shisode.jpg" data-lightbox="placement">
-                        <img class="display-doc" src="images/Akshay Shisode.jpg">
+                    <a href="images/offer-letter/Akshay Shisode.jpg" data-lightbox="placement">
+                        <img class="display-doc" src="images/offer-letter/Akshay Shisode.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/SHREYAS DESHPANDE.jpg" data-lightbox="placement">
-                        <img  class="display-doc" src="images/SHREYAS DESHPANDE.jpg">
+                    <a href="images/offer-letter/SHREYAS DESHPANDE.jpg" data-lightbox="placement">
+                        <img  class="display-doc" src="images/offer-letter/SHREYAS DESHPANDE.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/Vikas Ganpatil.jpg" data-lightbox="placement">
-                        <img  class="display-doc" src="images/Vikas Ganpatil.jpg">
+                    <a href="images/offer-letter/Vikas Ganpatil.jpg data-lightbox="placement">
+                        <img  class="display-doc" src="images/offer-letter/Vikas Ganpatil.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/prem_rathor.jpg" data-lightbox="placement">
-                        <img  class="display-doc" src="images/prem_rathor.jpg">
+                    <a href="images/offer-letter/prem_rathor.jpg" data-lightbox="placement">
+                        <img  class="display-doc" src="images/offer-letter/prem_rathor.jpg">
                     </a>
                 </div>
                 <div class="item"> 
-                    <a href="images/Rohit_Pawar.jpg" data-lightbox="placement">
-                        <img class="display-doc" src="images/Rohit_Pawar.jpg">
+                    <a href="images/offer-letter/Rohit_Pawar.jpg" data-lightbox="placement">
+                        <img class="display-doc" src="images/offer-letter/Rohit_Pawar.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/sachin_kadam.jpg" data-lightbox="placement">
-                      <img  class="display-doc" src="images/sachin_kadam.jpg">
+                    <a href="images/offer-letter/sachin_kadam.jpg" data-lightbox="placement">
+                      <img  class="display-doc" src="images/offer-letter//sachin_kadam.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/sarvesh_holla.jpg" data-lightbox="placement">
-                        <img  class="display-doc" src="images/sarvesh_holla.jpg">
+                    <a href="images/offer-letter/sarvesh_holla.jpg" data-lightbox="placement">
+                        <img  class="display-doc" src="images/offer-letter/sarvesh_holla.jpg">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="images/sonali_krande.jpg" data-lightbox="placement">
-                        <img  class="display-doc" src="images/sonali_krande.jpg">
+                    <a href="images/offer-letter/sonali_krande.jpg" data-lightbox="placement">
+                        <img  class="display-doc" src="images/offer-letter/sonali_krande.jpg">
                     </a>
                 </div>
             </div>
@@ -212,20 +209,19 @@
     <!-- LinghtBox Js--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
-
-        <!-- Testimonial Section -->
-       <div class="whatsapp-section" >
+    <!-- Testimonial Section -->
+    <div class="whatsapp-section" >
         <div class="whatsapp-title">
             <p> Our Students Love <span style="color:rgb(155, 228, 45);">CODE</span>MIND</p>
         </div>
         <div class="owl-carousel-section3">
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-carousel2 owl-theme">
                 <div class="item"> 
                     <div class = "testimonial-box">
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/priyanka.jpg">
+                                     <img src="images/testimonial-img/priyanka.jpg">
                                 </div>
                                 <div class="name-user">
                                     <strong> Pratiksha Bhuse</strong>
@@ -257,7 +253,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/P1-letter.jpg">
+                                     <img src="images/testimonial-img/P1-letter.jpg">
                                 </div>
                                 <div class="name-user">
                                     <strong>Priyanka Gaikwad</strong>
@@ -288,7 +284,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/R-letter.png">
+                                     <img src="images/testimonial-img/R-letter.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>Rohan Wakchaure</strong>
@@ -318,7 +314,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/kalyani.png">
+                                     <img src="images/testimonial-img/kalyani.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>kalyani yadav</strong>
@@ -348,7 +344,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/S2-letter.jpg">
+                                     <img src="images/testimonial-img/S-letter.jpg">
                                 </div>
                                 <div class="name-user">
                                     <strong>Sakshi Patil</strong>
@@ -378,7 +374,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/A-letter.png">
+                                     <img src="images/testimonial-img/A-letter.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>Arvind Panpatte</strong>
@@ -409,11 +405,11 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/S3-letter.png">
+                                     <img src="images/testimonial-img/S1-letter.png">
                                 </div>
                                 <div class="name-user">
-                                    <strong>Sanehal Khedekar</strong>
-                                     <span>@sanehalkhedekarweb</span> 
+                                    <strong>Snehal Khedekar</strong>
+                                     <span>@snehalkhedekarweb</span> 
                                 </div>
                             </div>
                             <div class="reviews">
@@ -440,7 +436,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/S4-letter.png">
+                                     <img src="images/testimonial-img/S2-letter.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>Sagar Misal</strong>
@@ -472,11 +468,11 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/M-letter.png">
+                                     <img src="images/testimonial-img/M1-letter.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>Monali Bandgar</strong>
-                                     <span>@monalibandgerweb</span> 
+                                    <span>@monalibandgerweb</span> 
                                 </div>
                             </div>
                             <div class="reviews">
@@ -487,6 +483,7 @@
                                 <i class="far fa-star"></i>
                             </div>
                         </div>
+                        
                         <div class="client-comment">
                             <p>In the codemind technology teacher's teaching technique is really good, they made learning
                                easy and because of this it creates interest in learning the programing languages. Coding 
@@ -503,7 +500,7 @@
                         <div class="box-top">
                             <div class="profile">
                                 <div class="profile-img">
-                                     <img src="images/R1-letter.png">
+                                     <img src="images/testimonial-img/R1-letter.png">
                                 </div>
                                 <div class="name-user">
                                     <strong>Rucha Tungatkar</strong>
@@ -538,34 +535,39 @@
         </div>
         <div class="syllabus-card">
             <div class="card3">
-               <p class="day">Day-1</p>
-               <h3>Introduction</h3>
-               <ul>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates with code</li>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates </li>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates with </li>
-                <li><i class="fa fa-check"></i> 10 Projects for </li>
+                <div class="day-section">
+                    <p class="day">Day-1</p>
+                </div>
+                <h3>HTML Basics</h3>
+                <ul>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Introduction to HTML</li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; HTML Document Structure </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; HTML Tags and Elements </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Text Formatting</li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Links and Anchor Tags</li>
                </ul>
               
             </div>
             <div class="card3">
                 <p class="day">Day-2</p>
-                 <h3>Introduction</h3>
+                 <h3>CSS Fundamentals</h3>
                  <ul>
-                  <li><i class="fa fa-check"></i> 10 Projects for graduates with code</li>
-                  <li><i class="fa fa-check"></i> 10 Projects for graduates </li>
-                  <li><i class="fa fa-check"></i> 10 Projects for graduates with </li>
-                  <li><i class="fa fa-check"></i> 10 Projects for </li>
+                  <li><i class="fa fa-angle-right"></i>&nbsp; Introduction to CSS </li>
+                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Syntax and Selectors</li>
+                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Box Model </li>
+                  <li><i class="fa fa-angle-right"></i>&nbsp; Styling Text and Fonts </li>
+                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Colors and Backgrounds </li>
                   </ul>
             </div>
             <div class="card3">
                 <p class="day">Day-3</p>
-                <h3>Introduction</h3>
+                <h3>Advanced CSS Techniques</h3>
                <ul>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates with code</li>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates </li>
-                <li><i class="fa fa-check"></i> 10 Projects for graduates with </li>
-                <li><i class="fa fa-check"></i> 10 Projects for </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; CSS Layouts: Flexbox </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; CSS Transitions and Animations </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Media Query ( Responsive web ) </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Deploying Your Web Project </li>
+                <li><i class="fa fa-angle-right"></i>&nbsp; Project Work and Recap</li>
                </ul>
             </div>
         </div>
@@ -620,73 +622,81 @@
       
             <div class="faq">
               <button class="accordion">
-                How does the program work?
+                What can I expect from the program?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
                 <p>
-                  The program is a live bootcamp where you can attend all sessions in real-time.
-                  Support is available for any queries. The bootcamp offers an immersive learning 
-                  experience to acquire knowlwdge and skills for web development. 
+                    The program offers a live bootcamp experience where you can participate in real-time sessions. 
+                    Our support team is available to assist with any queries you may have. You'll engage in an immersive
+                     learning environment designed to equip you with the knowledge and skills necessary for web development.
                 </p>
               </div>
             </div>
       
             <div class="faq">
               <button class="accordion">
-                I made the payment but didn't receive any confirmation or email from codekaro, what do I do?
+                What if I haven't received a confirmation email after making the payment?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
-                <p>
-                  Well, in most cases it should not happen. Make sure you give us 5-10 minutes in case
-                  you don't receive any emails right away. Even then if you don't receive anything from 
-                  us, then please write to info@codekaro.in and our awesome support team will clarify
-                  your problems in 24-48 hours.
+                <p>If you haven't received an email within 5-10 minutes,
+                   please contact us at hr@codemindtechnology.com Our support team will assist you within 24-48 hours
                 </p>
               </div>
             </div>
       
             <div class="faq">
               <button class="accordion">
-                I don't know a lot about web dev but I wnat to become a web developer.
-                Should I take the Program?
+                I'm new to web development. Should I enroll in the program?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
                 <p>
-                 Definitely, You should take the program as it will help you kickstart your journey as a
-                 web developer and also pick you up from the bed and make you stop procrastinating on the idea
-                 of becoming a web developer.
+                    Yes, you should! The program is perfect for beginners like you. It'll help you start your journey 
+                    as a web developer and get rid of any doubts you might have about becoming one.
                 </p>
               </div>
             </div>
       
             <div class="faq">
               <button class="accordion">
-                I am not from computer science background. Will this program help me?
+                Is this program suitable for beginners without a technical background?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
                 <p>
-                  The goal of this program is to help you start your journey no matter what
-                  your situation is. It doesn't matter if you are from computer science background or not, 
-                  you'll be able to do it :)
+                    Absolutely! This program is designed to help anyone start their journey in web development, 
+                    regardless of their background. Whether you're from a computer science background or not, you'll 
+                    be able to learn and succeed.
                 </p>
               </div>
             </div>
       
             <div class="faq">
               <button class="accordion">
-                Can I get a refund?
+                Is a refund possible for this program?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
                 <p>
-                  No, currently we don't have a refund policy.
+                    Unfortunately, we don't offer refunds at this time.
                 </p>
               </div>
             </div>
+
+            <div class="faq">
+                <button class="accordion">
+                    Is there a certificate provided upon completing the bootcamp?
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="pannel">
+                  <p>
+                    Yes, upon successful completion of the bootcamp, you'll receive a certificate of participation, 
+                    showcasing your newly acquired skills in HTML and CSS
+                  </p>
+                </div>
+              </div>
       
             <div class="faq">
               <button class="accordion">
@@ -695,7 +705,7 @@
               </button>
               <div class="pannel">
                 <p>
-                  After you purchase the program, you'II receive an email with all the details.
+                    Once you've purchased the program, you'll receive an email containing all the necessary details.
                 </p>
               </div>
             </div>
@@ -725,7 +735,7 @@
         <!-- copyRight-section -->
         <div class="copyright">
             <div class="codemide-logo">
-                <img src="images/codemind-img.jpeg" height="60px" width="60px">
+                <img src="images/codemind-img/codemind-img.jpeg" height="60px" width="60px">
             </div>
             <div class="copyright-name">
                 <strong>&copy; Copyright</strong> 
@@ -750,7 +760,9 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
          <!-- Owl-Curosel Logic -->
+         <script src="owl-carousel2.js"></script>
          <script src="owl-carousel1.js"></script>
          <script src="owl-carousel.js"></script>
+        
     </body>
 </html>

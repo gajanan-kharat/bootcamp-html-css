@@ -2,7 +2,7 @@
  .VideoSection{
     text-align: center;
     padding: 30px 20px 20px 20px;
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     font-family: "Nunito", sans-serif;
     display: flex;  
     flex-direction: column; 
@@ -15,19 +15,21 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
   .Title1{
     font-size: 1.6rem;
     font-weight: bold;
-    color: black;
+    color: #000000;
    }
    .Title2{
     font-weight:lighter;
-    color: orange;
+    color: #ffa500;
     line-height: 0.8cm;
+    font-size: 20px;
     }
     .title-section1 {
-        padding-top: 30px;
+        /* padding-top: 30px; */
         padding-left: 20px;
         width: 450px;
     }
@@ -43,11 +45,7 @@
     .detail-section{
         width:850px;
         height: 100%;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
         margin:20px 20px 20px 20px;
-        /* background: #023047; */
         background-color: rgb(58, 53, 53);
         border-radius: 20px;
         color:white;    
@@ -56,6 +54,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        /* align-items: center; */
         padding-top: 10px;
         padding-bottom: 15px
     }
@@ -67,7 +66,7 @@
         /* background:#02486b; */
         background-color: rgb(97, 94, 89);
         box-shadow: 5px 5px 10px rgb(78, 76, 72);
-        color:white;
+        color:#ffffff;
         border-radius: 10px;
         font-size: 20px;
         font-weight: bold;     
@@ -95,19 +94,19 @@
     margin:10px 32px 32px 32px;
 }
 .btn{
-    width: 850px;
+    width: 860px;
     height: auto;
-    margin-left: 12px;
-   /* background-color:  rgb(58, 181, 46); */
-   background-color: orange;
-    border-radius: 10px;
+    font-family: "Nunito", sans-serif;
+    background-color: #ffa500;
+    border-radius: 100px;
     font-size: 25px;
     font-weight: bold;
-    color:white;
-    border: 2px solid white;
+    color:#ffffff;
+    border: 2px solid #ffffff;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     cursor: pointer;
+    line-height: 0.6cm;
     transition: transform 0.5s, background-color 2s;
 }
  /* Button hover effect */
@@ -124,9 +123,10 @@
 .small-text{
     font-size: 15px;
     margin-top: -5px;  
+    font-weight: lighter;
 }
 .Title2{
-    animation: fadeInOut 3s infinite;  
+    animation: fadeInOut 10s infinite;  
 }
 @keyframes fadeInOut {
     0%, 100% {
@@ -136,6 +136,8 @@
         opacity: 1;
     }
 }
+
+
 
 @media only screen and (max-width: 360px) {
     .VideoSection{
@@ -157,23 +159,20 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .info{
-        /* margin-top: 30px; */
-        margin-left: 5px;
-    }
     .video-section{
         padding-top: 50px;
     }
     .display-video{
         width:auto;
-        height: auto;
+        height:175px;
     }
     .detail-section{
         width:auto;
         height: auto;
         border-radius: 20px;
-        color:white;
+        color:#ffffff;
         margin-left: 15px;
+        margin-top: 30px;
     }
     .img1{
         margin-left: 0px; 
@@ -189,13 +188,12 @@
         width: 115px;
         margin:10px;
         padding: 5px 10px 5px 10px;
+        font-size: 17px;
     }
     .btn{
-        width: 330px;
+        width: 340px;
         font-size: 20px;
         font-weight: bold;
-        /* height: 70px; */
-        margin-left: 0px;
     }
     .btn .small-text{
         font-size: 12px;
@@ -206,10 +204,11 @@
     .title-section1{
         padding-top: 10px;
         padding-left: 0px;
-        width: 400px;
+        width: 350px;
     }
     .title-section1 .Title1 {
         line-height: 1cm;
+        font-size: 1.5rem;
     }
     .VideoSection{
         padding-top: 10px;
@@ -217,6 +216,7 @@
     }
     .Title2{
         line-height: normal;
+        font-size: 17px;
     }    
 }
 
@@ -224,11 +224,9 @@
     .detail-section{
         width:63%;
         height:auto;
-        /* background: #023047; */
         background-color: rgb(58, 53, 53);
         border-radius: 20px;
-        color:white;
-        /* margin-left: 130px; */
+        color:#ffffff;
         margin-top: 30px;
        
     }
@@ -242,15 +240,13 @@
         height: 250px;
     }
     .img1{
-        /* margin-left: 140px; */
-        height:100px; 
-       
+        height:100px;       
     }
     .developer-section
     {
         top:25px;
-     flex-wrap: wrap;
-     justify-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .boot {
@@ -261,7 +257,6 @@
     }
     .btn{
         width: 475px;
-        /* font-size: 15px; */
         font-weight: bold;
         margin-left: 0px;
     }
@@ -273,7 +268,6 @@
 @media only screen and (min-width: 912px) and (max-width: 912px) and (orientation: portrait) {
     .detail-section{
         width: 54%;
-        /* margin-left: 190px; */
     }
     .btn{
         width: 489px;
@@ -283,7 +277,6 @@
  @media only screen and (min-width: 1368px) and (max-width: 1368px) and (orientation: landscape) {
     .detail-section{
         width: 54%;
-        /* margin-left: 190px; */
     }
     .btn{
         width: 489px;
@@ -292,5 +285,6 @@
  }
 
 @media only screen and (min-width: 1025px) {
+  
    
 }

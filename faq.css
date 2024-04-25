@@ -10,16 +10,13 @@
   }
   .wrapper > p,
   .wrapper > h1 {
-    /* margin: 1.5rem 0; */
     padding: 1.5rem 0;
     text-align: center;
   }
-  
   .wrapper > h1 {
     letter-spacing: 3px;
     margin-bottom: 25px;
   }
-  
   .accordion {
     background-color: white;
     color: rgba(0, 0, 0, 0.8);
@@ -36,24 +33,22 @@
     font-weight: bold;
      border-radius: 20px; 
     text-align: start;
+    font-family: "Nunito", sans-serif;
   }
-  
   .accordion i {
     font-size: 1.6rem;
   }
-  
   .active,
   .accordion:hover {
-    background-color: white;
+    background-color: #ffffff;
   }
   .pannel {
     padding: 0 2rem 2.5rem 2rem;
-    background-color: white;
     overflow: hidden;
-    background-color: white;
+    background-color:#ffffff;
     display: none;
-    border-bottom: 1px solid orange;
     border-radius: 20px;
+    font-family: "Nunito", sans-serif;
   }
   .pannel p {
     color: rgba(0, 0, 0, 0.7);
@@ -61,18 +56,15 @@
     line-height: 1.4;
   }
   .active,.accordion :active{
-    color: orange;
+    color: #ffa500;
   }
   
   .faq {
-    border: 1px solid orange;
+    border: 1px solid #ffa500;
     margin: 10px 0;
     border-radius: 20px;
     font-family: "Nunito", sans-serif;
    }
-  .faq.active {
-    /* border: none; */
-  }
   @media only screen and (max-width: 360px) {
     .wrapper{
       max-width: 85%;
@@ -96,6 +88,9 @@
       }
       .accordion i {
         margin-left: 5px;
+      }
+      .wrapper h1{
+        font-size: 32px;
       }
   }
   /* For tablets like iPads (portrait and landscape) */

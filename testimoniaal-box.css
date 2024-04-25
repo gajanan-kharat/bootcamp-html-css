@@ -1,46 +1,6 @@
-/*#testimonial{
-    margin-bottom: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    font-family: "Nunito", sans-serif;
-}
-.testimonial-heading{
-    letter-spacing: 1px;
-    margin: 30px 0px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.testimonial-heading h1{
-    font-size: 2.2rem;
-    font-weight: 500;
-    background-color: #202020;
-    color: #ffffff;
-    padding: 10px 20px;
-}
-.testimonial-heading span{
-    font-size: 1.3rem;
-    color: #252525;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-}
-.testimonial-box-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-}*/
 .testimonial-box{
     width: auto;
-    height: 300px;
+    height: 320px;
     /* border: 1px solid orange; */
     border-radius: 20px;
     box-shadow: 1px 1px 5px orange;
@@ -51,16 +11,15 @@
     font-family: "Nunito", sans-serif;
 }
 .profile-img{
+    /* width: 100%;
+    height: 100%; */ 
     overflow:hidden;
     margin-right: 5px;
 }
 .profile-img img{
-    /* width: 100%;
-    height: 100%; */
     border: 2px solid rgb(236, 230, 230);
     border-radius: 50%;
-    /* width: 40px; */
-    height: 35px;
+    width: 35px !important;
     object-fit: cover;
     object-position: center;
 }
@@ -75,7 +34,7 @@
 .name-user strong{
     color: #3d3d3d;
     font-size: 1rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
 }
 .name-user span{
     color: #979797;
@@ -83,10 +42,13 @@
 }
 .reviews{
     color: #f9d71c;
+    font-size: 12px;
+    text-align: center;
 }
 .box-top{
+    text-align: start;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -98,22 +60,30 @@
     transform: translateY(-10px);
     transition: all ease 0.3s
 }
-@media (max-width: 1060px){
+/*@media (max-width: 1060px){
     .testimonial-box{
         width: 85%;
         padding: 10px;
         height: 410px;
     }
-}
+}*/
 @media (max-width: 790px){
     .testimonial-box{
-        width: 90%;
-        height: 328px;
+        width: 85%;
+        height: auto;
         margin-top:12px;
-        margin-left: 6px;
+        margin-left: 2px;
     }
     .testimonial-box h1{
         font-size: 1.4rem;
+    }
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+    .reviews {
+        font-size: 12px;
     }
 }
 @media (max-width: 340px){
@@ -124,4 +94,77 @@
     .reviews{
         margin-top:10px;
     }
+}
+@media only screen and (max-width: 360px) {
+    .testimonial-box{
+        width: auto;
+        height: auto;
+        margin-left: 2px;
+    }
+    .profile-img{
+        overflow:hidden;
+        margin-right: 0px;
+    }
+    .profile-img img{
+        width: 30px !important;
+        margin-right: 5px;
+    }
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+    .reviews {
+        text-align: center;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 767px) {
+}
+
+/* For tablets like iPads (portrait and landscape) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+    .reviews {
+        font-size: 12px;
+    } 
+    .testimonial-box{
+        /* height: 380px; */
+        height: auto;
+    }
+
+ 
+}  
+@media only screen and (min-width: 912px) and (max-width: 912px) and (orientation: portrait) {
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+    .reviews {
+        font-size: 12px;
+    } 
+ }
+ @media only screen and (min-width: 1368px) and (max-width: 1368px) and (orientation: landscape) {
+    .name-user strong {
+        color: #3d3d3d;
+        font-size: 0.9rem;
+        letter-spacing: 0px;
+    }
+    .reviews {
+        font-size: 12px;
+    } 
+    .testimonial-box {
+        width: 85%;
+        padding: 10px;
+        height: 306px;
+    }
+ }
+/* For laptops and desktops */
+@media only screen and (min-width: 1025px) {
+ 
 }

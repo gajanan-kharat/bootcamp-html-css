@@ -1,6 +1,6 @@
 footer{
     background-color:rgb(43, 36, 36);
-    color: white;
+    color: #ffffff;
     position:fixed;
     bottom: 0px;
     height: 50px;
@@ -16,10 +16,10 @@ footer div h5{
     line-height: 0.6cm;
 }
 .bootcamp-btn{
-    background-color:  orange;
-    color:aliceblue;
+    background-color: #ffa500;
+    color:#f0f8ff;
     border: none;
-    box-shadow: 2px 2px 10px aliceblue;
+    box-shadow: 2px 2px 10px #f0f8ff;;
     height: 40px;
     width: 250px;
     border-radius: 20px;
@@ -65,9 +65,11 @@ footer div h5{
 @media only screen and (max-width: 767px) {
     footer div h3{
         margin-left: 40px;
+        font-size: 16px;
     }
     footer div h5{
         margin-left: 10px;
+        font-size: 15px;
     }
     .bootcamp-btn{
         width: auto;
@@ -76,7 +78,6 @@ footer div h5{
         padding-left: 15px;
         padding-right: 15px;
         font-size: 16px;
-        /* border: 2px solid white; */
     }
 }
 /* For tablets like iPads (portrait and landscape) */
