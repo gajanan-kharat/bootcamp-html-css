@@ -92,6 +92,9 @@
       .wrapper h1{
         font-size: 32px;
       }
+      .faq {
+        border-radius: 15px;
+      }
   }
   /* For tablets like iPads (portrait and landscape) */
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
