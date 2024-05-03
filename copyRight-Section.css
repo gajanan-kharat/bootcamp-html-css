@@ -1,11 +1,12 @@
 .copyright{
     background-color:rgb(255, 255, 255);
-    bottom: 0px;
+    /* bottom: 0px; */
     height: 40px;
     width:100%;
     margin-bottom: 70px;
     display: flex;
     justify-content: space-between;
+    
   }
 .codemide-logo img{
    margin-left: 40px;

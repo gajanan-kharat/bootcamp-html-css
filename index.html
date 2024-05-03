@@ -33,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="copyRight-Section.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
     <link rel="stylesheet" type="text/css" href="popup-section.css">
-    <link rel="stylesheet" type="text/css" href="popup1-section.css">
-
 </head>
 <body>
     <!-- header Section -->
@@ -71,19 +69,21 @@
             <button class="btn">Enroll Now just at Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
         </div>
     </div>
-   <!-- JQuery link -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <link rel="stylesheet" href="files/youtube-popup.css">
-  <link rel="stylesheet" href="files/grt-youtube-popup.css">
-   <script src="files/grt-youtube-popup.js"></script>
-   <script type="text/javascript">
+
+    <!-- JQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- popup css-->
+    <link rel="stylesheet" href="files/grt-youtube-popup.css">
+    <!-- popup JavaScript logic -->
+    <script src="files/grt-youtube-popup.js"></script>
+    <script type="text/javascript">
        $(".youtube-link").grtyoutube({
            autoplay:true,
            theme:"dark"
        });
-   </script>
+    </script>
    
-   <!-- Designed Flexible program -->
+    <!-- Designed Flexible program -->
     <div class="progarm-section">
         <div class="program-title">
             <p> We have designed Master <span class="boot-word">Boot</span>Camp <br>Specially for you </p>
@@ -122,7 +122,7 @@
         </div>
     </div> 
 
-     <!-- Success Stories -->
+    <!-- Success Stories -->
     <div class="stories-section" >
         <div class="stories-title">
             <p> Success Stories from the course Students </p>
@@ -130,36 +130,53 @@
         <div class="owl-carousel-section1"> 
             <div class="owl-carousel owl-carousel1 owl-theme">
                 <div class="item" >
-                    <iframe class="display-video1" src="https://www.youtube.com/embed/w-sOohyvnvk?si=5ppzE1VJ0TOv6ajC"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="video-gallery">
+                        <a href="javascript:void(0);" class="youtube-link" youtubeid="Yxiv1KQQ-9c?si=mAPmIuvs8mL5dQXb"></a>
+                        <iframe class="display-video1" src="https://www.youtube.com/embed/Yxiv1KQQ-9c?si=mAPmIuvs8mL5dQXb"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="item" >
-                    <iframe class="display-video1" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="video-gallery">
+                        <a href="javascript:void(0);" class="youtube-link" youtubeid="a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"></a>
+                        <iframe class="display-video1" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>    
                 </div>
                 <div class="item" >
-                    <iframe class="display-video1" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=roySfIMXqiJB_SkJ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="video-gallery">
+                        <a href="javascript:void(0);" class="youtube-link" youtubeid="1c2Ut8Km2oo?si=roySfIMXqiJB_SkJ"></a>
+                        <iframe class="display-video1" src="https://www.youtube.com/embed/1c2Ut8Km2oo?si=roySfIMXqiJB_SkJ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="item" >
-                    <iframe class="display-video1" src="https://www.youtube.com/embed/P9iIfrMkHAs?si=_4F-dk_VdEBhjscI"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="video-gallery">
+                        <a href="javascript:void(0);" class="youtube-link" youtubeid="P9iIfrMkHAs?si=_4F-dk_VdEBhjscI"></a>
+                        <iframe class="display-video1" src="https://www.youtube.com/embed/P9iIfrMkHAs?si=_4F-dk_VdEBhjscI"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="item" >
-                    <iframe class="display-video1" src="https://www.youtube.com/embed/PqfVoMNWa1s?si=4LDAJ5bZzZ0rVJns"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="video-gallery">
+                        <a href="javascript:void(0);" class="youtube-link" youtubeid="PqfVoMNWa1s?si=4LDAJ5bZzZ0rVJns"></a>
+                        <iframe class="display-video1" src="https://www.youtube.com/embed/PqfVoMNWa1s?si=4LDAJ5bZzZ0rVJns"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal Structure -->
-    <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModalBtn">&times;</span>
-            <iframe id="modalVideo" src="https://www.youtube.com/embed/a46KZtv1gaQ?si=8t4Uk1VeEY46wKum"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-    </div>
-    <!-- popup js file-->
-    <script src="popup.js"></script> 
+     <!-- JQuery link -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- popup css-->
+     <link rel="stylesheet" href="files/grt-youtube-popup.css">
+     <!-- popup JavaScript logic -->
+     <script src="files/grt-youtube-popup.js"></script>
+     <script type="text/javascript">
+        $(".youtube-link").grtyoutube({
+            autoplay:true,
+            theme:"dark"
+        });
+     </script>
 
-       
-      <!-- Offer-Letter Section-->
-       <div class="document-section" >
+    <!-- Offer-Letter Section -->
+    <div class="document-section" >
         <div class="document-title">
             <p> Our Recent Placement </p>
         </div>
@@ -209,7 +226,8 @@
             </div>
         </div>
     </div>
-    <!-- LinghtBox Js--> 
+
+    <!-- LinghtBox Js(JavaScript) --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
     <!-- Testimonial Section -->
@@ -582,47 +600,47 @@
                 <div class="instructor-title">
                     <p> Meet Your Instructor </p>
                 </div>
-                    <img  class="instructor-img" src="images/developer.jpg" >
+                    <img  class="instructor-img" src="images/GK_Sir.JPG" >
                     <h1>GK Sir</h1>
-                    <h3>I am NRI with having 10+ years of IT experience as full stack developer, passionate instructor and currently working as technical manager in MNC. I love unveiling the magic of I Love unveiling the magic of code & to sparks flames of creativity in eager minds</h3>
+                    <h3>I am NRI with having 10+ years of IT experience as full stack developer, passionate instructor and currently working as technical manager in MNC. I Love unveiling the magic of code & to sparks flames of creativity in eager minds</h3>
         </div>
     </div>
 
-      <!-- Time count  -->
-
-        <section class="timecount-section">
-            <div class="timecount-container">
-                <div class="time-title">
-                    <p class="hurry"> Hurry Up! </p>
-                    <p> Time is Limited Secure Your Spot Now </p>
+    <!-- Time count  -->
+    <section class="timecount-section">
+        <div class="timecount-container">
+            <div class="time-title">
+                <p class="hurry"> Hurry Up! </p>
+                <p> Time is Limited Secure Your Spot Now </p>
+            </div>
+            <div class="time-section">
+                <div class="time">
+                    <h1 id="days">00</h1>
+                    <h3>Days</h3>
                 </div>
-                <div class="time-section">
-                    <div class="time">
-                        <h1 id="days">00</h1>
-                        <h3>Days</h3>
-                    </div>
-                    <div class="time">
-                        <h1 id="hours">00</h1>
-                        <h3>Hours</h3>
-                    </div>
-                    <div class="time">
-                        <h1 id="minutes">00</h1>
-                        <h3>Minutes</h3>
-                    </div>
-                    <div class="time">
-                        <h1 id="seconds" >00</h1>
-                        <h3>Seconds</h3>
-                    </div>
+                <div class="time">
+                    <h1 id="hours">00</h1>
+                    <h3>Hours</h3>
+                </div>
+                <div class="time">
+                    <h1 id="minutes">00</h1>
+                    <h3>Minutes</h3>
+                </div>
+                <div class="time">
+                    <h1 id="seconds" >00</h1>
+                    <h3>Seconds</h3>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    
+    <!-- Time count Logic (JavaScript) -->
+    <script src="timeCount.js"></script>
 
     <!-- frequently Ask Questions -->
     <div class="faq-section">
         <div class="wrapper">
-          
             <h1>Frequently Asked Questions</h1>
-      
             <div class="faq">
               <button class="accordion">
                 What can I expect from the program?
@@ -712,14 +730,15 @@
                 </p>
               </div>
             </div>
-          </div>
-      </div>
-          <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-      
-            for (i = 0; i < acc.length; i++) {
-              acc[i].addEventListener("click", function () {
+        </div>
+    </div>
+
+    <!-- FAQ Logic -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
                 this.classList.toggle("active");
                 this.parentElement.classList.toggle("active");
       
@@ -732,40 +751,34 @@
                 }
               });
             }
-          </script>
+    </script>
     
-       
-        <!-- copyRight-section -->
-        <div class="copyright">
-            <div class="codemide-logo">
-                <img src="images/codemind-img/codemind-img.jpeg" height="60px" width="60px">
-            </div>
-            <div class="copyright-name">
-                <strong>&copy; Copyright</strong> 
-            </div>
+    <!-- copyRight-section -->
+    <div class="copyright">
+        <div class="codemide-logo">
+            <img src="images/codemind-img/codemind-img.jpeg" height="60px" width="60px">
         </div>
+        <div class="copyright-name">
+            <strong>&copy; Copyright</strong> 
+        </div>
+    </div>
 
-          <!-- copyRight-section -->
-          <footer>
-           <div>
-             <h3>&#8377; 99/-  <button class="bootcamp-btn">Join BootCamp Now</button> </h3>
-               <h5>offer ends in   &nbsp;<span id="days1">00</span> : <span id="hours1">00</span> : <span id="minutes1">00</span> :  <span id="seconds1">00</span></h5>
-               
-            </div>
-          </footer>
- 
+    <!-- Footer-section -->
+    <footer>
+        <div>
+            <h3>&#8377; 99/-  <button class="bootcamp-btn">Join BootCamp Now</button> </h3>
+            <h5>offer ends in   &nbsp;<span id="days1">00</span> : <span id="hours1">00</span> : <span id="minutes1">00</span> :  <span id="seconds1">00</span></h5>
+        </div>
+    </footer>
+    
+    
+    <!-- Owl-Curosel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- Time count Logic (JavaScript) -->
-        <script src="timeCount.js"></script>
+    <!-- Owl-Curosel Logic -->
+    <script src="owl-carousel2.js"></script>
+    <script src="owl-carousel1.js"></script>
 
-         <!-- Owl-Curosel -->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-         <!-- Owl-Curosel Logic -->
-         <script src="owl-carousel2.js"></script>
-         <script src="owl-carousel1.js"></script>
-         <script src="owl-carousel.js"></script>
-        
-    </body>
+</body>
 </html>
