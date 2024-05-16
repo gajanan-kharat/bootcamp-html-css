@@ -7,6 +7,11 @@
     font-weight: bold;
     font-family: "Nunito", sans-serif;
 }
+.headLine{
+    font-size: 25px;
+    font-weight: lighter;
+    margin-top: 10px;
+}
 .display-video1{
     border:5px solid rgb(204, 205, 209);
     height: 225px;

@@ -12,13 +12,14 @@
    margin-left: 40px;
 }
 .copyright-name {
-    margin-right: 20px;
-    margin-top: 10px; 
+    margin-right: 65px;
+    margin-top: 5px; 
 }
 /* For mobile devices (portrait and landscape) */
 @media only screen and (max-width: 767px) {
   .copyright-name {
     font-size: 15px;
+    margin-right: 20px;
   }
    .copyright{
     height: 50px;

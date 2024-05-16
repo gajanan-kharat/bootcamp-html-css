@@ -28,18 +28,38 @@
     <link rel="stylesheet" type="text/css" href="Whatsapp-section.css">
     <link rel="stylesheet" type="text/css" href="syllabus-section.css">
     <link rel="stylesheet" type="text/css" href="instructor-section.css">
+    <link rel="stylesheet" type="text/css" href="photo-section.css">
     <link rel="stylesheet" type="text/css" href="time-section.css">
     <link rel="stylesheet" type="text/css" href="faq.css">
     <link rel="stylesheet" type="text/css" href="copyRight-Section.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="to_Top.css">
     <link rel="stylesheet" type="text/css" href="popup-section.css">
+    <link rel="stylesheet" type="text/css" href="registration_popup.css">
 </head>
 <body>
     <!-- header Section -->
     <header>
         <p class="start">Start your web development <span class="hmtlcss">with HTML & CSS</span>  in just Rs. 99/- </p>
-        <button class="enroll-btn">Enroll Now</button>
+        <button class="enroll-btn" onclick="togglePopup()">Enroll Now</button>
     </header>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2><span class="Join">Join</span> Our 3-Day CSS <span class="bootName">Boot</span>camp!</h2>
+            <form id="form" action="#" method="post" onsubmit="return validateForm()">
+                <input class="name" type="text" id="name" name="name" placeholder="Full Name" autocomplete="name" >
+                <div id="nameError" class="error"></div>
+                <input class="email" type="email" id="email" name="email" placeholder="xyz@gmail.com" autocomplete="email" >
+                <div id="emailError" class="error"></div>
+                <input class="number" id="Number" name="Number" type="tel" placeholder="+91 0000000000" autocomplete="tel" >
+                <div id="numberError" class="error"></div>                
+                <button class="submit-btn" type="submit">Enroll Now</button>
+            </form>
+        </div>
+    </div>
+    <script defer src="registration_popup.js" content-type="text/javascript"></script>
    
     <!-- Video Section -->
     <div class="VideoSection">
@@ -66,7 +86,7 @@
             </div>
         </div>
         <div>
-            <button class="btn">Enroll Now just at Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
+            <button class="btn" onclick="togglePopup()">Enroll Now just at Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
         </div>
     </div>
 
@@ -125,7 +145,13 @@
     <!-- Success Stories -->
     <div class="stories-section" >
         <div class="stories-title">
-            <p> Success Stories from the course Students </p>
+            <!-- <p>Can't make up your mind?</p> -->
+            <!-- <p>Can't decide?</p> -->
+            <!-- <p> Success Stories from the course Students </p> -->
+            <!-- <h6 class="headLine">Listen to the success stories of people I've teamed up with</h6> -->
+            <!-- <p class="headLine">Hear about how others I've worked with found success</p> -->
+            <p>Finding it hard to choose? </p>
+            <p class="headLine"> Gain inspiration from the success stories of those I've partnered with</p> 
         </div>
         <div class="owl-carousel-section1"> 
             <div class="owl-carousel owl-carousel1 owl-theme">
@@ -595,7 +621,7 @@
     </div>
 
     <!-- Instructor Information -->
-    <div class="instructor-section">
+    <!--<div class="instructor-section">
         <div class="instructor-info">
                 <div class="instructor-title">
                     <p> Meet Your Instructor </p>
@@ -604,7 +630,143 @@
                     <h1>GK Sir</h1>
                     <h3>I am NRI with having 10+ years of IT experience as full stack developer, passionate instructor and currently working as technical manager in MNC. I Love unveiling the magic of code & to sparks flames of creativity in eager minds</h3>
         </div>
+    </div>-->
+
+    <div class="instructor-section">
+        <div class="instructor-info">
+                <div class="instructor-title">
+                    <p> Meet Your Instructor </p>
+                </div>
+                <div class="instructor-img-name">
+                    <img  class="instructor-img" src="images/GK_Sir.JPG" >
+                    <div class="instructor-name">
+                        <h1 class="sir">GK SIR</h1>
+                        <h3>FULL STACK DEVELOPER</h3>
+                        <!-- <h4>NRI Professional with 10+ Years Experience</h4> -->
+                    </div>
+                </div>
+                <div class="instructor-card">
+                    <!-- card-1 -->
+                    <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>12+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years of Experience in Building Software</p>
+                    </div>
+
+                     <!-- card-2 -->
+                     <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>
+
+                     <!-- card-3 -->
+                     <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>
+
+                     <!-- card-4 -->
+                     <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>
+
+                     <!-- card-5 -->
+                     <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>
+
+                     <!-- card-6 -->
+                     <div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>
+
+                     <!-- card-7 -->
+                     <!--<div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>-->
+
+                     <!-- card-8 -->
+                     <!--<div class="instructor-info-card">
+                        <div class="instructor-card-heading">
+                            <h1>10+</h1>
+                            <img src="images/experience-removebg-preview.png">
+                        </div>
+                        <p>Years Of Experience In Training And Coaching</p>
+                    </div>-->
+                </div>
+        </div>
     </div>
+
+    <!-- Photo-Section -->
+    <div class="photo-section">
+        <div>
+            <div class="photo-title">
+                <p class="photo-heading">Join My Mission</p>
+                <p>Empowering <span class="milion">1 Million</span> Software Developers to Succeed!</p>
+            </div>
+            <div class="grid-wrapper">
+                <div class="big">
+                    <a href="images/codemindTeam-img/sveri-2.jpg" data-lightbox="placement">
+                        <img src="images/codemindTeam-img/sveri-2.jpg">
+                    </a>
+                </div>
+                <div>
+                    <a href="images/codemindTeam-img/Drive-img.jpeg" data-lightbox="placement">
+                        <img  src="images/codemindTeam-img/Drive-img.jpeg">
+                    </a>
+                </div>
+                <div>
+                    <a href="images/codemindTeam-img/codemindBirth-img.jpeg" data-lightbox="placement">
+                        <img  src="images/codemindTeam-img/codemindBirth-img.jpeg">
+                   </a>
+                </div>
+                <div>
+                    <a href="images/codemindTeam-img/karmayogi-1.jpg" data-lightbox="placement">
+                        <img src="images/codemindTeam-img/karmayogi-1.jpg" >
+                    </a>
+                </div>
+                <div>
+                    <a href="images/codemindTeam-img/agpatil-7.png" data-lightbox="placement">
+                        <img src="images/codemindTeam-img/agpatil-7.png">
+                    </a>
+                </div>
+                <div>
+                    <a href="images/codemindTeam-img/Jalgaon-img.JPG" data-lightbox="placement">
+                        <img src="images/codemindTeam-img/Jalgaon-img.JPG ">
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="photo-bottom-line">
+                <p>Guiding You Through Struggles, I'm Here...</p>
+            </div> -->
+        </div>
+    </div>
+    <!-- LinghtBox Js(JavaScript) --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 
     <!-- Time count  -->
     <section class="timecount-section">
@@ -734,24 +896,7 @@
     </div>
 
     <!-- FAQ Logic -->
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                this.parentElement.classList.toggle("active");
-      
-                var pannel = this.nextElementSibling;
-      
-                if (pannel.style.display === "block") {
-                  pannel.style.display = "none";
-                } else {
-                  pannel.style.display = "block";
-                }
-              });
-            }
-    </script>
+    <script src="FAQ_logic.js"></script>
     
     <!-- copyRight-section -->
     <div class="copyright">
@@ -766,12 +911,18 @@
     <!-- Footer-section -->
     <footer>
         <div>
-            <h3>&#8377; 99/-  <button class="bootcamp-btn">Join BootCamp Now</button> </h3>
+            <h3>&#8377; 99/-  <button class="bootcamp-btn" onclick="togglePopup()">Join BootCamp Now</button> </h3>
             <h5>offer ends in   &nbsp;<span id="days1">00</span> : <span id="hours1">00</span> : <span id="minutes1">00</span> :  <span id="seconds1">00</span></h5>
         </div>
+        <!-- Bottom to Top Scroll -->
+        <a href = "#" class="to-top">
+             <i class="fa fa-angle-up" id="topScroll"></i>
+        </a>
+        <script src="to_Top.js"></script>
     </footer>
     
-    
+  
+
     <!-- Owl-Curosel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
