@@ -13,8 +13,6 @@
     text-align: center;
 } 
 .instructor-info{
-    /* width: 600px;
-    height: 350px; */
     font-family: "Nunito", sans-serif;
     line-height: 0.7cm;
     text-align: center;
@@ -50,7 +48,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-
 }
 .instructor-card{
     display: flex;
@@ -58,41 +55,58 @@
     flex-wrap: wrap;
     margin-top: 30px;
 }
+.instructor-info-card h2{
+   color:rgb(19, 19, 153);
+}
+.instructor-info-card ul {
+    margin-top: 20px;
+}
+.instructor-info-card ul li {
+    text-align:start;
+    list-style-type: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.instructor-info-card ul i {   
+    margin-right: 15px;
+    color: rgb(20, 203, 75);
+}
+
+.instructor-info-card ul li .text {
+    font-weight: bold;
+    margin-right: 5px;
+} 
 .instructor-info-card{
-    height: 140px;
-    width: 225px;
+    width: 380px;
     border: 1px solid #f3eee5;
     box-shadow: 3px 3px 10px#ebdfca;
     background-color: #fffefb;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 20px 20px;
     border-radius: 10px;
-    margin-left: 25px;
+    margin-left: 30px;
     margin-top: 25px;
 }
-/* .instructor-info-card:hover{
-    transform: scale(1.1);
-} */
 .instructor-info-card p{
-    margin-top: 20px;
     text-align: left;
 }
 .instructor-card-heading{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    background-color: #eedbf1;
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
 }
-/* .instructor-card-heading h1{
-    color: #009378;
-} */
 .instructor-card-heading img{
     height:40px; 
     width:40px;
 }
 @media only screen and (max-width: 360px){
     .instructor-info-card {
-        height: 160px !important;
-        width: 115px !important;
-        margin-left: 10px !important;
+        height: auto !important;
+        width: 280px !important;
     }
     .instructor-img-name {
         margin-left: 15px;
@@ -119,16 +133,12 @@
         height: 150px;
         width: 150px;
     }
-    /* .instructor-info h1{
-        margin-bottom: 15px;
-    } */
     .instructor-info-card p {
         margin-top: 15px;
     }
     .instructor-info-card {
-        height: 160px;
-        width: 130px;
-        margin-left: 15px;
+        width: 320px;
+        margin-left: 0px;
     }
     .instructor-img {
         margin-left: 30px;
@@ -143,6 +153,7 @@
         margin-top: 15px;
     }
   }
+
   /* For tablets like iPads (portrait and landscape) */
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .instructor-section{
@@ -160,8 +171,7 @@
         line-height: normal;
         
     }
- 
-  }  
+}  
   /* For laptops and desktops */
 @media only screen and (min-width: 1025px) {
    

@@ -7,17 +7,17 @@
     max-width: 75%;
     margin: auto;
     font-family: "Nunito", sans-serif;
-  }
-  .wrapper > p,
-  .wrapper > h1 {
+}
+.wrapper > p,
+.wrapper > h1 {
     padding: 1.5rem 0;
     text-align: center;
-  }
-  .wrapper > h1 {
+}
+.wrapper > h1 {
     letter-spacing: 3px;
     margin-bottom: 25px;
-  }
-  .accordion {
+}
+.accordion {
     background-color: white;
     color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
@@ -34,43 +34,44 @@
      border-radius: 20px; 
     text-align: start;
     font-family: "Nunito", sans-serif;
-  }
-  .accordion i {
+}
+.accordion i {
     font-size: 1.6rem;
-  }
-  .active,
-  .accordion:hover {
+}
+.active,
+.accordion:hover {
     background-color: #ffffff;
-  }
-  .pannel {
+}
+.pannel {
     padding: 0 2rem 2.5rem 2rem;
     overflow: hidden;
     background-color:#ffffff;
     display: none;
     border-radius: 20px;
     font-family: "Nunito", sans-serif;
-  }
-  .pannel p {
+}
+.pannel p {
     color: rgba(0, 0, 0, 0.7);
     font-size: 1.2rem;
     line-height: 1.4;
-  }
-  .active,.accordion :active{
+}
+.active,.accordion :active{
     color: #ffa500;
-  }
-  
-  .faq {
+}
+.faq {
     border: 1px solid #ffa500;
     margin: 10px 0;
     border-radius: 20px;
     font-family: "Nunito", sans-serif;
-   }
-  @media only screen and (max-width: 360px) {
+}
+
+@media only screen and (max-width: 360px) {
     .wrapper{
       max-width: 85%;
     }
-  }
-  /* For mobile devices (portrait and landscape) */
+}
+
+/* For mobile devices (portrait and landscape) */
 @media only screen and (max-width: 767px) {
     .accordion {
         font-size: 0.8rem;
@@ -95,12 +96,12 @@
       .faq {
         border-radius: 15px;
       }
-  }
-  /* For tablets like iPads (portrait and landscape) */
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
- 
-  }  
-  /* For laptops and desktops */
+}
+
+/* For tablets like iPads (portrait and landscape) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}  
+  
+/* For laptops and desktops */
 @media only screen and (min-width: 1025px) {
-   
-  }
+}

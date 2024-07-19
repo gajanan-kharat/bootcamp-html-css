@@ -43,29 +43,14 @@ function validateField(input) {
     }
 }
 
-/*function validateForm() {
-    var isValid = true;
-    document.querySelectorAll('.name, .email, .number').forEach(function(input) {
-        if (input.value.trim() === "") {
-            validateField(input);
-            isValid = false;
-        }
-    });
-    return isValid;
-}*/
-
 function validateForm() {
     var isValid = true;
     document.querySelectorAll('.name, .email, .number').forEach(function(input) {
-        validateField(input); // Validate each field
-        
-        // Check if the field is empty or if there is any error message
+        validateField(input); 
         if (input.value.trim() === "" || document.getElementById(input.id + 'Error').textContent.trim() !== "") {
             isValid = false;
         }
     });
-
-    // Prevent form submission if any field is invalid
     if (!isValid) {
         return false;
     }

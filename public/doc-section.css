@@ -15,7 +15,6 @@
 .owl-carousel {
      margin-top: 45px;
 }
-
 .display-doc{
    border:2px solid rgb(241, 207, 132);
    border-radius: 20px;
@@ -23,6 +22,7 @@
    width:200px;
    height:380px;
 }
+
 @media only screen and (max-width: 360px) {
     .owl-carousel-section2 {
         margin-left: 54px !important;
@@ -41,7 +41,6 @@
         margin-left: 10px;
     }
     .document-section{
-        /* padding-left: 8px; */
         padding-top: 30px;
     }  
     .document-title {

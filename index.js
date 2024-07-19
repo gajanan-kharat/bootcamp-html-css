@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect('mongodb://localhost:27017/Database')
+ mongoose.connect('mongodb://localhost:27017/Database')
 var db=mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
@@ -54,8 +54,8 @@ app.post("/payment_success",(req,res) => {
     var transactionDate = new Date().toLocaleString(); 
 
     // Fetch event details from your database or hardcoded values
-    var eventName = "3-day CSS Session";
-    var eventDate = "1/6/2024 TO 3/6/2024"; 
+    var eventName = "3-days CSS Session";
+    var eventDate = "30/7/2024 TO 2/7/2024"; 
     var eventLocation = "Online"; 
     var zoomLink = "https://example.com/zoom"; 
 
@@ -159,6 +159,11 @@ app.post("/payment_success",(req,res) => {
                     .content {
                         padding: 20px;
                         animation: fadeIn 2s ease-in-out;
+                       /* background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.peakpx.com%2Fen%2Fhd-wallpaper-desktop-eicem&psig=AOvVaw3uD2Woqd6ydDN7dcwiDMG8&ust=1721482644702000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDog96cs4cDFQAAAAAdAAAAABAE'); */
+                        background-size: cover; 
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        /*color:white;*/
                     }
                     .content p, .content h2, .content ul {
                         margin: 0 0 15px;
@@ -179,9 +184,19 @@ app.post("/payment_success",(req,res) => {
                     .content ul li{
                         list-style: none;
                     }
-                    .content h2 {
-                        color: #4CAF50;
-                        font-size: 20px;
+                    .content ul li strong{
+                        margin-right: 10px;
+                    }
+                    .content .google_meet {
+                       margin-left: 10px;
+                    }
+                    .content .codemind_website {
+                        margin-left: 10px;
+                    }
+                    .content .line{
+                        color: rgb(81, 152, 31);
+                        font-size: 22px;
+                        font-weight: bolder;
                     }
                     #phone{
                         color: #4CAF50; 
@@ -227,7 +242,7 @@ app.post("/payment_success",(req,res) => {
                         background-color: #45a049;
                     }
                     .whatsapp-button {
-                        background-color: #25D366;
+                        background-color: #25D366; 
                         display: inline-block;
                         padding: 10px 20px;
                         margin: 20px 0;
@@ -256,15 +271,15 @@ app.post("/payment_success",(req,res) => {
                         <p>Your payment for the 3-day CSS session has been successfully processed.</p>
                         <h3>Enrollment Details:</h3>
                         <ul>
-                            <li><strong>Name:</strong> ${name}</li>
-                            <li><strong>Email:</strong> ${email}</li>
-                            <li><strong>Mobile:</strong> ${Number}</li>
-                            <li><strong>Payment ID:</strong> ${paymentId} </li>
+                            <li><strong>Name :</strong> ${name}</li>
+                            <li><strong>Email :</strong> ${email}</li>
+                            <li><strong>Mobile :</strong> ${Number}</li>
+                            <li><strong>Payment ID :</strong> ${paymentId} </li>
                         </ul>
-                        <p><strong>Zoom Link:</strong> <a class="google_meet" href="https://meet.google.com/fwj-zwwx-hpk">https://meet.google.com/fwj-zwwx-hpk</a></p>
-                        <p> For more courses, visit our website: <a class="codemind_website" href="https://www.codemindtechnology.com/">https://www.codemindtechnology.com</a></p>
+                        <p><strong>Zoom Link :</strong> <a class="google_meet" href="https://meet.google.com/fwj-zwwx-hpk">https://meet.google.com/fwj-zwwx-hpk</a></p>
+                        <p> For more courses, visit our website : <a class="codemind_website" href="https://www.codemindtechnology.com/">https://www.codemindtechnology.com</a></p>
                         <p> Thank you very much for choosing us. </p>
-                        <p>  &quot; Success is not a milestone, it's a journey. And we have vowed to help you in yours.  &quot;</p>
+                        <p class="line">  &quot; Success is not a milestone, it's a journey. And we have vowed to help you in yours.  &quot;</p>
                         <p> Take the first step in your journey with us.</p>
                         <p class="codemind_content">Best regards,</p>
                         <p class="codemind_content">Codemind Technology, Pune</p>

@@ -48,7 +48,7 @@
     <div class="popup" id="popup">
         <div class="popup-content">
             <span class="close" onclick="closePopup()">&times;</span>
-            <h2><span class="Join">Join</span> Our 3-Day CSS <span class="bootName">Boot</span>camp!</h2>
+            <h2><span class="Join">Join</span> Our 3-Days CSS <span class="bootName">Boot</span>Camp!</h2>
             <form action="/sign_up" method="post" id="form"  onsubmit="return validateForm()">
                 <input class="name" type="text" id="name" name="name" placeholder="Full Name" autocomplete="name" >
                 <div id="nameError" class="error"></div>
@@ -72,22 +72,26 @@
                  </div>
             </div>
             <div class="title-section1">
-                <p class="Title1">Learn the website development in <span style="color:#ffa500;"> just 3 days</span> to create your own protflio & make design like Instagram, chatGPT & Youtube.</span> </p>
-                <h4><span class="Title2">The must have bootcamp to quick start your Web development.</span></h4>
+                <div class="bonuses_title">
+                    <p class="bonuses" id="bonuses">Bonuses Worth ₹51,000 </p>
+                    <p class="bonuses">( Includes 10 Mini Projects with Source Code )</p>
+                </div>
+                <p class="Title1">Learn the website development in<span style="color:#ffa500;"> just 3 days</span> create your own portfolio & make designs like Instagram, ChatGPT & YouTube.</span> </p>
+                <h4><span class="Title2">The must have BootCamp to quickly start your web development.</span></h4>
              </div>
         </div>
         <div class="detail-section">
             <div class="info">
-                    <div class="boot"> 3 days Bootcamp </div>
-                    <div class="boot"> Zoom Sessions</div>
-                    <div class="boot"> NRI-Woking Experts </div>
-                    <div class="boot"> Form 19<sup>th</sup> April</div>
-                    <div class="boot"> Form 8:30 PM</div>
-                    <div class="boot"> Live Sessions</div>
+                    <div class="boot">3 days BootCamp</div>
+                    <div class="boot">Zoom Sessions</div>
+                    <div class="boot">NRI-Working Experts</div>
+                    <div class="boot"><span>From 9<sup>th</sup> August</span></div>
+                    <div class="boot">Bonuses</div>
+                    <div class="boot">Live Sessions</div>
             </div>
         </div>
         <div>
-            <button class="btn" onclick="togglePopup()">Enroll Now just at Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
+            <button class="btn" onclick="togglePopup()">Enroll now for just Rs. 99/- <br><span class="small-text">The most demanding BootCamp for job seekers </span></button>
         </div>
     </div>
 
@@ -112,33 +116,33 @@
         <div class="program-card">
             <div id="card-color1" class="card">
                 <img class="card-img" src="images/card-img/project-img.webp">
-               <h3>10 Projects for graduates with code</h3> 
-               <p>The best projects to learn step by step & master the web development</p>
+               <h3>10 Projects for Graduates with Code</h3> 
+               <p>The best projects to learn step by step & master web development.</p>
             </div>
             <div id="card-color2" class="card">
                 <img  class="card-img" src="images/card-img/logical-img.png">
-                <h3>50 IMP Logical questions</h3> 
-                <p>The most important logical questions that's been asked in technical interview</p> 
+                <h3>50 Important Logical Questions</h3> 
+                <p>The most important logical questions asked in technical interviews.</p> 
             </div>
             <div id="card-color3" class="card">
                 <img class="card-img" src="images/card-img/resume-img.png">
-                <h3>Catchy resume Temaplates</h3> 
-                <p>get the catchy resume templates with most efficacy in interview selection</p>
+                <h3>Catchy Resume Templates</h3> 
+                <p>Get catchy resume templates with the highest efficacy in interview selection.</p>
             </div>
             <div id="card-color4" class="card">
                 <img  class="card-img" src="images/card-img/project-img1.webp">
-                <h3>Project Based Learning</h3> 
-                <p>One line of code at a time through hands on projects, where learning meets real world-applications</p>
+                <h3>Project-Based Learning</h3> 
+                <p>Learn one line of code at a time through hands on projects where learning meets real-world applications.</p>
             </div>
             <div id="card-color5" class="card">
                 <img class="card-img" src="images/card-img/certificate-icon.png">
-                <h3>Get certificate!</h3> 
-                <p>Join us noww our bootcamp to earn your free certificate & showcase your expertise on our esteemed platform</p>
+                <h3>Get Certificate</h3> 
+                <p>Join our BootCamp now to earn your free certificate & showcase your expertise on our esteemed platform.</p>
             </div>
             <div id="card-color6" class="card">
                 <img class="card-img" id="card6" src="images/card-img/liveclas- image.jpg">
-                <h3>All Live Sessions!</h3>
-                <p>Elevate your skills with real-time instruction - join our live sessions for an immersive learning experience & clear your doubts instantly </p>
+                <h3>All Live Sessions</h3>
+                <p>Elevate your skills with real-time instruction - join our live sessions for an immersive learning experience & clear your doubts instantly. </p>
             </div>
         </div>
     </div> 
@@ -146,13 +150,8 @@
     <!-- Success Stories -->
     <div class="stories-section" >
         <div class="stories-title">
-            <!-- <p>Can't make up your mind?</p> -->
-            <!-- <p>Can't decide?</p> -->
-            <!-- <p> Success Stories from the course Students </p> -->
-            <!-- <h6 class="headLine">Listen to the success stories of people I've teamed up with</h6> -->
-            <!-- <p class="headLine">Hear about how others I've worked with found success</p> -->
-            <p>Finding it hard to choose? </p>
-            <p class="headLine"> Gain inspiration from the success stories of those I've partnered with</p> 
+            <p>Finding it hard to choose?</p>
+            <p class="headLine"> Gain inspiration from the success stories of those I've partnered with </p> 
         </div>
         <div class="owl-carousel-section1"> 
             <div class="owl-carousel owl-carousel1 owl-theme">
@@ -579,59 +578,47 @@
     <!-- Syllabus Section -->
     <div class="syllabus-section">
         <div class="syllabus-title">
-            <p> What exactly we will learn in this <span style="color: orange;">Boot</span>Camp</p>
+            <p> What exactly will we learn in this  <span style="color: orange;">Boot</span>Camp</p>
         </div>
         <div class="syllabus-card">
             <div class="card3">
                 <div class="day-section">
                     <p class="day">Day-1</p>
                 </div>
-                <h3>HTML Basics</h3>
                 <ul>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Introduction to HTML</li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; HTML Document Structure </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; HTML Tags and Elements </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Text Formatting</li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Links and Anchor Tags</li>
+                <li><i class="fa fa-angle-right"></i> HTML5 Introduction</li>
+                <li><i class="fa fa-angle-right"></i> HTML tags and HTML5 Semantic Elements</li>
+                <li><i class="fa fa-angle-right"></i> Links and Media</li>
+                <li><i class="fa fa-angle-right"></i> Web site Structure</li>
+                <li><i class="fa fa-angle-right"></i> CSS Introduction</li>
                </ul>
+               <h3>Day 1 Assignment</h3>
               
             </div>
             <div class="card3">
                 <p class="day">Day-2</p>
-                 <h3>CSS Fundamentals</h3>
                  <ul>
-                  <li><i class="fa fa-angle-right"></i>&nbsp; Introduction to CSS </li>
-                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Syntax and Selectors</li>
-                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Box Model </li>
-                  <li><i class="fa fa-angle-right"></i>&nbsp; Styling Text and Fonts </li>
-                  <li><i class="fa fa-angle-right"></i>&nbsp; CSS Colors and Backgrounds </li>
+                  <li><i class="fa fa-angle-right"></i> CSS Types and Selectors </li>
+                  <li><i class="fa fa-angle-right"></i> CSS Box Model </li>
+                  <li><i class="fa fa-angle-right"></i> Text Formatting and Google Font Families </li>
+                  <li><i class="fa fa-angle-right"></i> Flexbox - Responsive Web Design </li>
+                  <li><i class="fa fa-angle-right"></i> Media Queries </li>
                   </ul>
+                  <h3>Day 2 Assignment</h3>
             </div>
             <div class="card3">
                 <p class="day">Day-3</p>
-                <h3>Advanced CSS Techniques</h3>
                <ul>
-                <li><i class="fa fa-angle-right"></i>&nbsp; CSS Layouts: Flexbox </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; CSS Transitions and Animations </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Media Query ( Responsive web ) </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Deploying Your Web Project </li>
-                <li><i class="fa fa-angle-right"></i>&nbsp; Project Work and Recap</li>
+                <li><i class="fa fa-angle-right"></i> My Profile Website Structuring </li>
+                <li><i class="fa fa-angle-right"></i> Figma Design </li>
+                <li><i class="fa fa-angle-right"></i> Website Implementation from Scratch </li>
+                <li><i class="fa fa-angle-right"></i> Deploying website - Free of Cost </li>
+                <li><i class="fa fa-angle-right"></i> Good to go - Share your own website link</li>
                </ul>
+               <h3>Bonuses- Projects, Resumes and Logical Programs</h3>
             </div>
         </div>
     </div>
-
-    <!-- Instructor Information -->
-    <!--<div class="instructor-section">
-        <div class="instructor-info">
-                <div class="instructor-title">
-                    <p> Meet Your Instructor </p>
-                </div>
-                    <img  class="instructor-img" src="images/GK_Sir.JPG" >
-                    <h1>GK Sir</h1>
-                    <h3>I am NRI with having 10+ years of IT experience as full stack developer, passionate instructor and currently working as technical manager in MNC. I Love unveiling the magic of code & to sparks flames of creativity in eager minds</h3>
-        </div>
-    </div>-->
 
     <div class="instructor-section">
         <div class="instructor-info">
@@ -643,81 +630,49 @@
                     <div class="instructor-name">
                         <h1 class="sir">GK SIR</h1>
                         <h3>FULL STACK DEVELOPER</h3>
-                        <!-- <h4>NRI Professional with 10+ Years Experience</h4> -->
                     </div>
                 </div>
                 <div class="instructor-card">
                     <!-- card-1 -->
                     <div class="instructor-info-card">
                         <div class="instructor-card-heading">
-                            <h1>12+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>NRI with years of full-stack development experience</p>
+                            <img src="images/experience_img-removebg-preview.png">
+                            <h2>Experience in IT</h2>
+                        </div>                      
+                        <ul>
+                            <li><i class="fa fa-angle-double-right"></i> 11 years plus of Experience</li>
+                            <li><i class="fa fa-angle-double-right"></i> Working Experience in more than 7 organization</li>
+                            <li><i class="fa fa-angle-double-right"></i> Technical Lead</li>
+                            <li><i class="fa fa-angle-double-right"></i> NRI - UK and Norway</li>
+                        </ul>
                     </div>
 
                      <!-- card-2 -->
                      <div class="instructor-info-card">
                         <div class="instructor-card-heading">
-                            <h1>10+</h1>
                             <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Currently serving as a technical manager in an MNC</p>
+                            <h2>Passionate Trainer</h2>
+                        </div>                  
+                        <ul>
+                            <li><i class="fa fa-angle-double-right"></i> Passionate Trainer</li>
+                            <li><i class="fa fa-angle-double-right"></i> Trained 4000 plus students</li>
+                            <li><i class="fa fa-angle-double-right"></i> 100 plus workshops</li>
+                        </ul>
                     </div>
 
                      <!-- card-3 -->
                      <div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Years Of Experience In Training And Coaching</p>
-                    </div>
-
-                     <!-- card-4 -->
-                     <div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Passionate about teaching and inspiring creativity</p>
-                    </div>
-
-                     <!-- card-5 -->
-                     <div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Dedicated to unveiling the magic of code</p>
-                    </div>
-
-                     <!-- card-6 -->
-                     <div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Fostering innovation in eager minds</p>
-                    </div>
-
-                     <!-- card-7 -->
-                     <!--<div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Years Of Experience In Training And Coaching</p>
-                    </div>-->
-
-                     <!-- card-8 -->
-                     <!--<div class="instructor-info-card">
-                        <div class="instructor-card-heading">
-                            <h1>10+</h1>
-                            <img src="images/experience-removebg-preview.png">
-                        </div>
-                        <p>Years Of Experience In Training And Coaching</p>
-                    </div>-->
+                       <div class="instructor-card-heading">
+                            <img src="images/skill1.png">
+                            <h2>Expertise in SKILLS</h2>
+                        </div> 
+                        <ul>
+                            <li><i class="fa fa-angle-double-right"></i><span><strong>Front End</strong> - HTML, CSS, JS, TS, Bootstrap, Angular and React</span></li>
+                            <li><i class="fa fa-angle-double-right"></i><span><strong>Backend</strong> - Java 8, Spring, Spring Boot, Microservices, HBM and JPA</span></li>
+                            <li><i class="fa fa-angle-double-right"></i><span><strong>Tools</strong> : Docker, K8, Jenkins, Openshift, Kibana, Dnyantrace and AWS</span></li>
+                            <li><i class="fa fa-angle-double-right"></i><span><strong>IDE</strong> - VS Code, IntelliJ, Eclipse</span></li>
+                        </ul>
+                    </div>           
                 </div>
         </div>
     </div>
@@ -727,7 +682,7 @@
         <div>
             <div class="photo-title">
                 <p class="photo-heading">Join My Mission</p>
-                <p>Empowering <span class="milion">1 Million</span> Software Developers to Succeed!</p>
+                <p>Empowering <span class="milion">1 Million</span> Students to Succeed!</p>
             </div>
             <div class="grid-wrapper">
                 <div class="big">
@@ -761,11 +716,9 @@
                     </a>
                 </div>
             </div>
-            <!-- <div class="photo-bottom-line">
-                <p>Guiding You Through Struggles, I'm Here...</p>
-            </div> -->
         </div>
     </div>
+
    <!-- Popup Modal -->
     <div id="popup-modal" class="modal">
         <div class="modal-content">
@@ -773,6 +726,7 @@
             <img id="modal-image" src="" alt="Popup Image">
         </div>
     </div>
+
     <!-- Popup Model(JavaScript) -->
     <script src="photo-popup.js"></script>
 
@@ -818,9 +772,9 @@
               </button>
               <div class="pannel">
                 <p>
-                    The program offers a live bootcamp experience where you can participate in real-time sessions. 
+                    The program offers a live Bootcamp experience where you can participate in real-time sessions. 
                     Our support team is available to assist with any queries you may have. You'll engage in an immersive
-                     learning environment designed to equip you with the knowledge and skills necessary for web development.
+                    learning environment designed to equip you with the knowledge and skills necessary for web development.
                 </p>
               </div>
             </div>
@@ -832,7 +786,7 @@
               </button>
               <div class="pannel">
                 <p>If you haven't received an email within 5-10 minutes,
-                   please contact us at hr@codemindtechnology.com Our support team will assist you within 24-48 hours
+                   please contact us at <strong>hr@codemindtechnology.com</strong> Our support team will assist you within 24-48 hours.
                 </p>
               </div>
             </div>
@@ -857,9 +811,9 @@
               </button>
               <div class="pannel">
                 <p>
-                    Absolutely! This program is designed to help anyone start their journey in web development, 
-                    regardless of their background. Whether you're from a computer science background or not, you'll 
-                    be able to learn and succeed.
+                    Absolutely! This program is designed to help anyone start their journey in web
+                    development, regardless of their background. Whether you come from a computer science 
+                    background or not, you'll be able to learn and succeed.
                 </p>
               </div>
             </div>
@@ -878,25 +832,26 @@
 
             <div class="faq">
                 <button class="accordion">
-                    Is there a certificate provided upon completing the bootcamp?
+                    Is there a certificate provided upon completing the BootCamp?
                   <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="pannel">
                   <p>
-                    Yes, upon successful completion of the bootcamp, you'll receive a certificate of participation, 
-                    showcasing your newly acquired skills in HTML and CSS
+                    Yes, upon successful completion of the BootCamp, you will receive a certificate of 
+                    participation showcasing your newly acquired skills in HTML and CSS.
                   </p>
                 </div>
               </div>
       
             <div class="faq">
               <button class="accordion">
-                How will access the content?
+                How will I access the content?
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="pannel">
                 <p>
-                    Once you've purchased the program, you'll receive an email containing all the necessary details.
+                   Once you've purchased the program, you will receive an email containing all the 
+                   necessary details.
                 </p>
               </div>
             </div>

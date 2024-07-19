@@ -19,7 +19,7 @@
 }
 .card3{
     border: 1px solid rgb(255, 212, 212);
-    height: auto;
+    height: 360px;
     width: 310px;
     margin: 20px;
     background-color:#454545;
@@ -58,14 +58,23 @@
     text-align: left;
     padding-left: 10px;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: rgb(249, 193, 11);
+    line-height: 2rem;
 }
-.card3 ul li{
+
+
+.card3 ul li {
     text-align: left;
     list-style-type: none;
     padding-left: 10px;
     font-size: 1rem;
     line-height: 2rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.card3 ul li i {
+    margin-right: 20px; 
 }
 .card3 ul li i{
     color:rgb(145, 235, 142);
