@@ -4,6 +4,8 @@ var mongoose = require("mongoose")
 const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 const app = express()
+const { initializeFirebaseApp,uploadProcessedData,updateProcessedData} = require("./firebase");
+require('dotenv').config();
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
@@ -11,16 +13,18 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
- mongoose.connect('mongodb://localhost:27017/Database')
-var db=mongoose.connection
-db.on('error',()=> console.log("Error in Connecting to Database"))
-db.once('open',()=> console.log("Connected to Database"))
+initializeFirebaseApp();
+
+// mongoose.connect(process.env.MONGO_URI)
+// var db=mongoose.connection
+// db.on('error',()=> console.log("Error in Connecting to Database"))
+// db.once('open',()=> console.log("Connected to Database"))
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'sushamajun95@gmail.com',
-        pass: 'zosm esxn nqcd djrk'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
 });
 
@@ -28,6 +32,7 @@ app.post("/sign_up",(req,res) => {
     var name= req.body.name
     var email=req.body.email
     var Number=req.body.Number
+    
     var data={
         "name":name,
         "email":email,
@@ -36,12 +41,16 @@ app.post("/sign_up",(req,res) => {
         "paymentStatus": "fail" 
       
     }
-    db.collection('users_register').insertOne(data,(err,collection) => {
-        if(err){
-            throw err;
-        }
-        console.log("Register Record Inserted Succesfully")
-    })
+    // db.collection('users_register').insertOne(data,(err,collection) => {
+    //     if(err){
+    //         throw err;
+    //     }
+    //     console.log("Register Record Inserted Succesfully")
+    // })
+
+     uploadProcessedData(data);
+     console.log("Register Record Inserted Successfully in Firestore");
+
     return res.redirect(`/signup_successful.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&Number=${encodeURIComponent(Number)}`);
 })
 
@@ -53,30 +62,37 @@ app.post("/payment_success",(req,res) => {
     var amountPaid = "99/- "; 
     var transactionDate = new Date().toLocaleString(); 
 
-    // Fetch event details from your database or hardcoded values
     var eventName = "3-days CSS Session";
     var eventDate = "30/7/2024 TO 2/7/2024"; 
     var eventLocation = "Online"; 
-    var zoomLink = "https://example.com/zoom"; 
+    var zoomLink = "https://example.com/zoom";
+    
+    const updateData = {
+        paymentId: paymentId,
+        paymentStatus: 'success'
+    };
 
-
-    db.collection('users_register').findOneAndUpdate({ 
-            name: name, email: email, Number: Number 
-        },
-        { 
-            $set: { 
-                paymentId: paymentId, paymentStatus: 'success'
-            } 
-        },
-        { 
-            returnOriginal: false 
-        },
-        (err, result) => {
-            if (err) {
-                console.error("Error updating payment status:", err); 
-                return res.status(500).send("Error updating payment status"); 
-            }
-            console.log("Payment Record Updated Successfully");
+    updateProcessedData(email, name, Number, updateData)
+        .then(() => {
+            // res.status(200).send("Payment processed and document updated successfully.");
+       
+    // db.collection('users_register').findOneAndUpdate({ 
+    //         name: name, email: email, Number: Number 
+    //     },
+    //     { 
+    //         $set: { 
+    //             paymentId: paymentId, paymentStatus: 'success'
+    //         } 
+    //     },
+    //     { 
+    //         returnOriginal: false 
+    //     },
+    //     (err, result) => {
+    //         if (err) {
+    //             console.error("Error updating payment status:", err); 
+    //             return res.status(500).send("Error updating payment status"); 
+    //         }
+            console.log("Payment Record Updated to pass in firebase.js file Successfully");
         
          // Create a new PDF document
         const doc = new PDFDocument();
@@ -383,17 +399,23 @@ app.post("/payment_success",(req,res) => {
     doc.end();
 
             return res.redirect('/showdata.html');
-        }
-    );
+   })
+   .catch((error) => {
+    console.error("Error updating document: ", error);
+    // Send error response only if no response has been sent
+    if (!res.headersSent) {
+        res.status(500).send("Error updating document: " + error.message);
+    }
+    });
 })
 
-
+const PORT = process.env.PORT || 3000;
 app.get("/",(req,res) => {
     res.set({
         "Allow-acces-Allow-Origin":'*'
     })
     return res.redirect('index.html')
-}).listen(3000);
+}).listen(PORT);
 
 console.log("Listening on port 3000") 
 
