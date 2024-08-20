@@ -8,7 +8,7 @@ var options = {
     {
         "name": userName,
         "email": userEmail,
-        "contact": userNumber,
+        "contact": userMobile,
     },
     config: {
       display: {
@@ -58,7 +58,7 @@ var options = {
     // Extract user data
     var name = getQueryParam("name");
     var email = getQueryParam("email");
-    var Number = getQueryParam("Number");
+    var mobile = getQueryParam("mobile");
     var payment_Id = getQueryParam("payment_Id");
    
     // Make AJAX POST request to server to save data
@@ -68,7 +68,7 @@ var options = {
         data: {
             name: name,
             email: email,
-            Number: Number,
+            mobile: mobile,
             paymentId: response.razorpay_payment_id
         },
         success: function (data) {
@@ -78,7 +78,7 @@ var options = {
             console.error("Error saving data:", error);
         }
     });
-    alert("Payment successful!");
+    log("Payment successful!");
     // Redirect user to signup_successful.html
     window.location.href = "showdata.html";
 },
