@@ -1,8 +1,5 @@
 # Base Image
-FROM node:16-alpine
-
-# Install Node.js and npm
-RUN apk add --no-cache nodejs npm 
+FROM node:16-slim
 
 # Set Working Directory
 WORKDIR /
