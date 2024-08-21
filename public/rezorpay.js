@@ -72,13 +72,14 @@ var options = {
             paymentId: response.razorpay_payment_id
         },
         success: function (data) {
-            console.log("Data saved successfully:", data);
+            console.log("Data saved successfully:");
         },
         error: function (error) {
             console.error("Error saving data:", error);
         }
     });
-    log("Payment successful!");
+    console.log("Payment successful!");
+    
     // Redirect user to signup_successful.html
     window.location.href = "showdata.html";
 },

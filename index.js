@@ -88,13 +88,31 @@ app.post("/payment_success", (req, res) => {
       doc.on("end", () => {
         const pdfData = Buffer.concat(buffers);
 
+        const extractedFirstName = name.split(' ')[0];
+
+        // Capitalize the first letter and make the rest lowercase
+        const firstName = extractedFirstName.charAt(0).toUpperCase() + extractedFirstName.slice(1).toLowerCase();
+
+        const toTitleCase = (str) => {
+            return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+        };
+        const fullname = toTitleCase(name);
+
+        // Replace the placeholders with actual data
+        const populatedTemplate = process.env.EMAIL_TEMPLATE
+                                  .replace('${firstName}', firstName )
+                                  .replace('${fullname}', fullname)
+                                  .replace('${email}', email)
+                                  .replace('${mobile}', mobile)
+                                  .replace('${paymentId}', paymentId);
+
         // Send email
         const mailOptions = {
           // Add this one in env file. from and subject 
-          from: "sushamajun95@gmail.com",
+          from: process.env.EMAIL_USER,
           to: email,
-          subject: "Payment Successful",
-          html: process.env.EMAIL_TEMPLATE,
+          subject: process.env.EMAIL_SUB,
+          html: populatedTemplate,
           attachments: [
             {
               filename: "payment_receipt.pdf",
