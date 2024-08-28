@@ -1,8 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
+const Razorpay = require('razorpay');
 const app = express();
 const {
   initializeFirebaseApp,
@@ -12,6 +13,7 @@ const {
 
 require("dotenv").config();
 
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use(
@@ -58,10 +60,10 @@ app.post("/payment_success", (req, res) => {
   var email = req.body.email;
   var mobile = req.body.mobile;
   var paymentId = req.body.paymentId;
+  var orderId = req.body.orderId;
 
   var amountPaid = process.env.FEE_BOOT_CAMP;
   var transactionDate = new Date().toLocaleString();
-
   
   var eventName = process.env.EVENT_NAME;
   var eventDate = process.env.EVENT_DATE;
@@ -70,6 +72,7 @@ app.post("/payment_success", (req, res) => {
 
   const updatePaymentData = {
     paymentId: paymentId,
+    orderId: orderId,
     paymentStatus: "success",
   };
 
@@ -104,7 +107,8 @@ app.post("/payment_success", (req, res) => {
                                   .replace('${fullname}', fullname)
                                   .replace('${email}', email)
                                   .replace('${mobile}', mobile)
-                                  .replace('${paymentId}', paymentId);
+                                  .replace('${paymentId}', paymentId)
+                                  .replace('${orderId}',orderId);
 
         // Send email
         const mailOptions = {
@@ -152,6 +156,7 @@ app.post("/payment_success", (req, res) => {
       const row8Y = row7Y + 20;
       const row9Y = row8Y + 20;
       const row10Y = row9Y + 20;
+      const row11Y = row10Y + 20;
 
       // Define the column positions
       const col1X = 50;
@@ -188,11 +193,14 @@ app.post("/payment_success", (req, res) => {
       doc.text(" Zoom Link : ", col1X, row10Y);
       doc.text(zoomLink, col2X, row10Y);
 
+      doc.text(" Order ID : ", col1X, row11Y);
+      doc.text(orderId, col2X, row11Y);
+
       doc.moveDown();
       doc.text(
         "Thank you for your payment. If you have any questions or concerns, feel free to contact us.",
         50,
-        row10Y + 30
+        row11Y + 30
       );
       doc.moveDown();
       doc.moveDown();
@@ -204,11 +212,34 @@ app.post("/payment_success", (req, res) => {
     })
     .catch((error) => {
       console.error("Error updating document: ", error);
-      // Send error response only if no response has been sent
       if (!res.headersSent) {
         res.status(500).send("Error updating document: " + error.message);
       }
     });
+});
+
+//Razorpay Integration 
+app.post('/create-order', async (req, res) => {
+  const razorpayKeyId = process.env.KEY_ID;
+  const razorpayKeySecret = process.env.KEY_SECRET;
+
+  // Create an order with Razorpay
+  const instance = new Razorpay({
+    key_id: razorpayKeyId,
+    key_secret: razorpayKeySecret,
+  });
+
+  const options = {
+    amount: req.body.amount,  
+    currency: req.body.currency,
+  };
+
+  try {
+    const order = await instance.orders.create(options);
+    res.json({ id: order.id, amount: order.amount, currency: order.currency, key: razorpayKeyId });
+  } catch (error) {
+    res.status(500).send('Error creating Razorpay order');
+  }
 });
 
 const PORT = process.env.PORT || 3000;
