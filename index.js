@@ -1,4 +1,4 @@
-var express = require("express");
+/*var express = require("express");
 var bodyParser = require("body-parser");
 // var mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
@@ -252,4 +252,185 @@ app
   })
   .listen(PORT);
 
-console.log("Listening on port 3000");
+console.log("Listening on port 3000");*/
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var mongoose = require("mongoose"); // Uncommented
+const nodemailer = require("nodemailer");
+const PDFDocument = require("pdfkit");
+const Razorpay = require('razorpay');
+const app = express();
+
+require("dotenv").config();
+
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.static("public"));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+var db=mongoose.connection
+db.on('error',()=> console.log("Error in Connecting to Database"))
+db.once('open',()=> console.log("Connected to Database"))
+
+// Define the Mongoose schema
+const bootcampSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  mobileNumber: String,
+  paymentId: String,
+  paymentStatus: { type: String, default: "fail" },
+  orderId: String,
+  source: { type: String, default: "3-days CSS Bootcamp" },
+  date: { type: Date, default: Date.now },
+});
+
+// Create a Mongoose model
+const User = mongoose.model("Bootcamp",  bootcampSchema);
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+// Sign up route to insert a new document in MongoDB
+app.post("/sign_up", (req, res) => {
+  console.log("res:=>",req.body);
+  const { name, email, mobileNumber } = req.body;
+
+  const user = new User({
+    name,
+    email,
+    mobileNumber,
+    paymentId: "",
+    paymentStatus: "fail",
+  });
+
+  user.save()
+    .then(() => {
+      console.log("Register Record Inserted Successfully in MongoDB");
+      return res.redirect(
+        `/signup_successful.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&mobileNumber=${encodeURIComponent(mobileNumber)}`
+      );
+    })
+    .catch((error) => {
+      console.error("Error inserting record:", error);
+      res.status(500).send("Error inserting record");
+    });
+});
+
+// Payment success route to update a record in MongoDB
+app.post("/payment_success", (req, res) => {
+  const { name, email, mobileNumber, paymentId, orderId } = req.body;
+
+  User.findOneAndUpdate(
+    { email: email },
+    { paymentId, orderId, paymentStatus: "success" },
+    { new: true }
+  )
+  .then((updatedUser) => {
+    if (!updatedUser) {
+      return res.status(404).send("User not found");
+    }
+    console.log("Payment Record Updated Successfully in MongoDB");
+
+    // Create and send PDF receipt in email as before
+    const doc = new PDFDocument();
+    const buffers = [];
+    doc.on("data", buffers.push.bind(buffers));
+    doc.on("end", () => {
+      const pdfData = Buffer.concat(buffers);
+
+      const extractedFirstName = name.split(' ')[0];
+
+      // Capitalize the first letter and make the rest lowercase
+      const firstName = extractedFirstName.charAt(0).toUpperCase() + extractedFirstName.slice(1).toLowerCase();
+
+      const toTitleCase = (str) => {
+          return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+      };
+      const fullname = toTitleCase(name);
+
+       // Replace the placeholders with actual data
+        const populatedTemplate = process.env.EMAIL_TEMPLATE
+                                  .replace('${firstName}', firstName )
+                                  .replace('${fullname}', fullname)
+                                  .replace('${email}', email)
+                                  .replace('${mobileNumber}', mobileNumber)
+                                  .replace('${paymentId}', paymentId)
+                                  .replace('${orderId}',orderId);
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: process.env.EMAIL_SUB,
+        html: populatedTemplate,
+        attachments: [
+          { filename: "payment_receipt.pdf", content: pdfData }
+        ]
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error("Error sending email:", error);
+        } else {
+          console.log("Email sent:", info.response);
+        }
+      });
+    });
+
+    // Add content to the PDF document as in your original code...
+    doc.end();
+    return res.redirect("/showdata.html");
+  })
+  .catch((error) => {
+    console.error("Error updating document:", error);
+    if (!res.headersSent) {
+      res.status(500).send("Error updating document: " + error.message);
+    }
+  });
+});
+
+// Razorpay Integration
+app.post('/create-order', async (req, res) => {
+  const razorpayKeyId = process.env.KEY_ID;
+  const razorpayKeySecret = process.env.KEY_SECRET;
+
+  const instance = new Razorpay({
+    key_id: razorpayKeyId,
+    key_secret: razorpayKeySecret,
+  });
+
+  const options = {
+    amount: req.body.amount,
+    currency: req.body.currency,
+  };
+
+  try {
+    const order = await instance.orders.create(options);
+    res.json({ id: order.id, amount: order.amount, currency: order.currency, key: razorpayKeyId });
+  } catch (error) {
+    res.status(500).send("Error creating Razorpay order");
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.set({
+    "Allow-Access-Allow-Origin": "*",
+  });
+  return res.redirect("index.html");
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});

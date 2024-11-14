@@ -28,7 +28,7 @@
 .bootName{
     color: #ffa500;
 }
-.name, .email, .mobile{
+.name, .email, .mobileNumber{
   display: block;
   margin-bottom: 10px;
   width:94%;
@@ -39,7 +39,7 @@
   letter-spacing: 2px;
  outline: #ffa500;
 }
-.name:focus, .email:focus, .mobile:focus {
+.name:focus, .email:focus, .mobileNumber:focus {
     border-color: #ffa500;
 }
 .submit-btn{

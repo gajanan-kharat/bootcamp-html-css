@@ -6,7 +6,7 @@ function getQueryParam(param) {
 // Retrieve query parameters
 const userName = getQueryParam("name");
 const userEmail = getQueryParam("email");
-const userMobile = getQueryParam("mobile");
+const userMobile = getQueryParam("mobileNumber");
 
 
 // Display values in console

@@ -35,7 +35,7 @@ document.getElementById('rzp-button1').onclick = async function (e) {
           data: {
             name: getQueryParam("name"),
             email: getQueryParam("email"),
-            mobile: getQueryParam("mobile"),
+            mobileNumber: getQueryParam("mobileNumber"),
             paymentId: response.razorpay_payment_id,
             orderId: response.razorpay_order_id
           },

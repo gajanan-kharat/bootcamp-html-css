@@ -3,7 +3,7 @@ function togglePopup() {
     popup.style.display = "block"; 
 }
 
-document.querySelectorAll('.name, .email, .mobile').forEach(function(input) {
+document.querySelectorAll('.name, .email, .mobileNumber').forEach(function(input) {
     input.addEventListener('blur', function() {
         validateField(input);
       
@@ -45,7 +45,7 @@ function validateField(input) {
 
 function validateForm() {
     var isValid = true;
-    document.querySelectorAll('.name, .email, .mobile').forEach(function(input) {
+    document.querySelectorAll('.name, .email, .mobileNumber').forEach(function(input) {
         validateField(input); 
         if (input.value.trim() === "" || document.getElementById(input.id + 'Error').textContent.trim() !== "") {
             isValid = false;
@@ -62,9 +62,9 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-function isValidMobile(mobile) {
+function isValidMobile(mobileNumber) {
     var mobileRegex = /^\d{10}$/;
-    return mobileRegex.test(mobile);
+    return mobileRegex.test(mobileNumber);
 }
 
 function closePopup() {
@@ -77,7 +77,7 @@ function closePopup() {
     });
 }
 
-document.querySelectorAll('.name, .email, .mobile').forEach(function(input) {
+document.querySelectorAll('.name, .email, .mobileNumber').forEach(function(input) {
     input.addEventListener('focus', function() {
         var errorElement = document.getElementById(input.id + 'Error');
         if (errorElement) {
