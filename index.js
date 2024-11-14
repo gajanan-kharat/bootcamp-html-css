@@ -1,3 +1,4 @@
+//firebase storeage code
 /*var express = require("express");
 var bodyParser = require("body-parser");
 // var mongoose = require("mongoose");
@@ -75,7 +76,7 @@ app.post("/payment_success", (req, res) => {
     orderId: orderId,
     paymentStatus: "success",
   };
-
+]
   updateData(email, name, mobile, updatePaymentData)
     .then(() => {
       console.log(
@@ -254,9 +255,10 @@ app
 
 console.log("Listening on port 3000");*/
 
+//mongodb atlas storeage code
 var express = require("express");
 var bodyParser = require("body-parser");
-var mongoose = require("mongoose"); // Uncommented
+var mongoose = require("mongoose"); 
 const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
 const Razorpay = require('razorpay');
@@ -331,6 +333,14 @@ app.post("/sign_up", (req, res) => {
 // Payment success route to update a record in MongoDB
 app.post("/payment_success", (req, res) => {
   const { name, email, mobileNumber, paymentId, orderId } = req.body;
+  
+  var amountPaid = process.env.FEE_BOOT_CAMP;
+  var transactionDate = new Date().toLocaleString();
+  
+  var eventName = process.env.EVENT_NAME;
+  var eventDate = process.env.EVENT_DATE;
+  var eventLocation = process.env.EVENT_LOCATION;
+  var zoomLink = process.env.ZOOM_LINK;
 
   User.findOneAndUpdate(
     { email: email },
@@ -388,8 +398,80 @@ app.post("/payment_success", (req, res) => {
       });
     });
 
-    // Add content to the PDF document as in your original code...
+    // Add content to the PDF document
+    doc.image("codemind-img/codemind-img.jpeg", 25, 10, {
+      width: 100,
+      height: 100,
+    });
+    doc.moveDown();
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(15)
+      .text("Payment Receipt", { align: "center" });
+
+    // Calculate the position for each row
+    const row1Y = 130;
+    const row2Y = row1Y + 20;
+    const row3Y = row2Y + 20;
+    const row4Y = row3Y + 20;
+    const row5Y = row4Y + 20;
+    const row6Y = row5Y + 20;
+    const row7Y = row6Y + 20;
+    const row8Y = row7Y + 20;
+    const row9Y = row8Y + 20;
+    const row10Y = row9Y + 20;
+    const row11Y = row10Y + 20;
+
+    // Define the column positions
+    const col1X = 50;
+    const col2X = 200;
+
+    doc.font("Helvetica").fontSize(12);
+    doc.text(" Full Name : ", col1X, row1Y);
+    doc.text(name, col2X, row1Y);
+
+    doc.text(" Email : ", col1X, row2Y);
+    doc.text(email, col2X, row2Y);
+
+    doc.text(" Mobile No : ", col1X, row3Y);
+    doc.text(mobileNumber, col2X, row3Y);
+
+    doc.text(" Payment ID : ", col1X, row4Y);
+    doc.text(paymentId, col2X, row4Y);
+
+    doc.text(" Amount Paid : ", col1X, row5Y);
+    doc.text(amountPaid, col2X, row5Y);
+
+    doc.text(" Transaction Date : ", col1X, row6Y);
+    doc.text(transactionDate, col2X, row6Y);
+
+    doc.text(" Event Name  : ", col1X, row7Y);
+    doc.text(eventName, col2X, row7Y);
+
+    doc.text(" Date : ", col1X, row8Y);
+    doc.text(eventDate, col2X, row8Y);
+
+    doc.text(" Location : ", col1X, row9Y);
+    doc.text(eventLocation, col2X, row9Y);
+
+    doc.text(" Zoom Link : ", col1X, row10Y);
+    doc.text(zoomLink, col2X, row10Y);
+
+    doc.text(" Order ID : ", col1X, row11Y);
+    doc.text(orderId, col2X, row11Y);
+
+    doc.moveDown();
+    doc.text(
+      "Thank you for your payment. If you have any questions or concerns, feel free to contact us.",
+      50,
+      row11Y + 30
+    );
+    doc.moveDown();
+    doc.moveDown();
+    doc.text("Best regards,", { align: "right" });
+    doc.text("Codemind Technology, Pune", { align: "right" });
     doc.end();
+
     return res.redirect("/showdata.html");
   })
   .catch((error) => {
