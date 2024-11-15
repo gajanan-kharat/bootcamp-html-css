@@ -363,7 +363,7 @@ app.post("/payment_success", (req, res) => {
   var eventName = process.env.EVENT_NAME;
   var eventDate = process.env.EVENT_DATE;
   var eventLocation = process.env.EVENT_LOCATION;
-  var zoomLink = process.env.ZOOM_LINK;
+  // var zoomLink = process.env.ZOOM_LINK;
 
   User.findOneAndUpdate(
     { email: email },
@@ -477,11 +477,14 @@ app.post("/payment_success", (req, res) => {
     doc.text(" Location : ", col1X, row9Y);
     doc.text(eventLocation, col2X, row9Y);
 
-    doc.text(" Zoom Link : ", col1X, row10Y);
-    doc.text(zoomLink, col2X, row10Y);
+    doc.text(" Order ID : ", col1X, row10Y);
+    doc.text(orderId, col2X,  row10Y);
 
-    doc.text(" Order ID : ", col1X, row11Y);
-    doc.text(orderId, col2X, row11Y);
+    // doc.text(" Zoom Link : ", col1X, row10Y);
+    // doc.text(zoomLink, col2X, row10Y);
+
+    // doc.text(" Order ID : ", col1X, row11Y);
+    // doc.text(orderId, col2X, row11Y);
 
     doc.moveDown();
     doc.text(
