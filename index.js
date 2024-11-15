@@ -284,6 +284,9 @@ db.once('open',()=> console.log("Connected to Database"))
 // Define the Mongoose schema
 const bootcampSchema = new mongoose.Schema({
   name: String,
+  firstName: String,
+  middleName: String,
+  lastName: String,
   email: String,
   mobileNumber: String,
   paymentId: String,
@@ -304,13 +307,32 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+ // Function to convert a string to title case
+ const toTitleCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  };
+
 // Sign up route to insert a new document in MongoDB
 app.post("/sign_up", (req, res) => {
-  console.log("res:=>",req.body);
+
+  // console.log("res:=>",req.body);
   const { name, email, mobileNumber } = req.body;
 
+  // Split the name into parts
+  const nameParts = name.trim().split(' ');
+
+  // Assign the parts to firstName, middleName, and lastName in title case
+  const firstName = toTitleCase(nameParts[0]);
+  const middleName = nameParts.length > 2 ? toTitleCase(nameParts.slice(1, -1).join(' ')) : '';
+  const lastName = nameParts.length > 1 ? toTitleCase(nameParts[nameParts.length - 1]) : '';
   const user = new User({
-    name,
+    firstName,
+    middleName,
+    lastName,
     email,
     mobileNumber,
     paymentId: "",
@@ -332,11 +354,12 @@ app.post("/sign_up", (req, res) => {
 
 // Payment success route to update a record in MongoDB
 app.post("/payment_success", (req, res) => {
-  const { name, email, mobileNumber, paymentId, orderId } = req.body;
+  const { email, mobileNumber, paymentId, orderId } = req.body;
+  let { name } = req.body; 
+  name = toTitleCase(name);
   
   var amountPaid = process.env.FEE_BOOT_CAMP;
   var transactionDate = new Date().toLocaleString();
-  
   var eventName = process.env.EVENT_NAME;
   var eventDate = process.env.EVENT_DATE;
   var eventLocation = process.env.EVENT_LOCATION;
@@ -370,8 +393,8 @@ app.post("/payment_success", (req, res) => {
       };
       const fullname = toTitleCase(name);
 
-       // Replace the placeholders with actual data
-        const populatedTemplate = process.env.EMAIL_TEMPLATE
+      // Replace the placeholders with actual data
+      const populatedTemplate = process.env.EMAIL_TEMPLATE
                                   .replace('${firstName}', firstName )
                                   .replace('${fullname}', fullname)
                                   .replace('${email}', email)
