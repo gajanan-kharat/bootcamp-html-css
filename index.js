@@ -1,3 +1,292 @@
+//mongodb atlas storeage code
+/*var express = require("express");
+var bodyParser = require("body-parser");
+var mongoose = require("mongoose"); 
+const nodemailer = require("nodemailer");
+const PDFDocument = require("pdfkit");
+const Razorpay = require('razorpay');
+const app = express();
+
+require("dotenv").config();
+
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.static("public"));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+var db=mongoose.connection
+db.on('error',()=> console.log("Error in Connecting to Database"))
+db.once('open',()=> console.log("Connected to Database"))
+
+// Define the Mongoose schema
+const bootcampSchema = new mongoose.Schema({
+  name: String,
+  firstName: String,
+  middleName: String,
+  lastName: String,
+  email: String,
+  mobileNumber: String,
+  paymentId: String,
+  paymentStatus: { type: String, default: "fail" },
+  orderId: String,
+  source: { type: String, default: "3-days CSS Bootcamp" },
+  date: { type: Date, default: Date.now },
+});
+
+// Create a Mongoose model
+const User = mongoose.model("Bootcamp",  bootcampSchema);
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+ // Function to convert a string to title case
+ const toTitleCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  };
+
+// Sign up route to insert a new document in MongoDB
+app.post("/sign_up", (req, res) => {
+
+  // console.log("res:=>",req.body);
+  const { name, email, mobileNumber } = req.body;
+
+  // Split the name into parts
+  const nameParts = name.trim().split(' ');
+
+  // Assign the parts to firstName, middleName, and lastName in title case
+  const firstName = toTitleCase(nameParts[0]);
+  const middleName = nameParts.length > 2 ? toTitleCase(nameParts.slice(1, -1).join(' ')) : '';
+  const lastName = nameParts.length > 1 ? toTitleCase(nameParts[nameParts.length - 1]) : '';
+  const user = new User({
+    firstName,
+    middleName,
+    lastName,
+    email,
+    mobileNumber,
+    paymentId: "",
+    paymentStatus: "fail",
+  });
+
+  user.save()
+    .then(() => {
+      console.log("Register Record Inserted Successfully in MongoDB");
+      return res.redirect(
+        `/signup_successful.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&mobileNumber=${encodeURIComponent(mobileNumber)}`
+      );
+    })
+    .catch((error) => {
+      console.error("Error inserting record:", error);
+      res.status(500).send("Error inserting record");
+    });
+});
+
+// Payment success route to update a record in MongoDB
+app.post("/payment_success", (req, res) => {
+  const { email, mobileNumber, paymentId, orderId } = req.body;
+  let { name } = req.body; 
+  name = toTitleCase(name);
+  
+  var amountPaid = process.env.FEE_BOOT_CAMP;
+  var transactionDate = new Date().toLocaleString();
+  var eventName = process.env.EVENT_NAME;
+  var eventDate = process.env.EVENT_DATE;
+  var eventLocation = process.env.EVENT_LOCATION;
+  // var zoomLink = process.env.ZOOM_LINK;
+
+  User.findOneAndUpdate(
+    { email: email },
+    { paymentId, orderId, paymentStatus: "success" },
+    { new: true }
+  )
+  .then((updatedUser) => {
+    if (!updatedUser) {
+      return res.status(404).send("User not found");
+    }
+    console.log("Payment Record Updated Successfully in MongoDB");
+
+    // Create and send PDF receipt in email as before
+    const doc = new PDFDocument();
+    const buffers = [];
+    doc.on("data", buffers.push.bind(buffers));
+    doc.on("end", () => {
+      const pdfData = Buffer.concat(buffers);
+
+      const extractedFirstName = name.split(' ')[0];
+
+      // Capitalize the first letter and make the rest lowercase
+      const firstName = extractedFirstName.charAt(0).toUpperCase() + extractedFirstName.slice(1).toLowerCase();
+
+      const toTitleCase = (str) => {
+          return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+      };
+      const fullname = toTitleCase(name);
+
+      // Replace the placeholders with actual data
+      const populatedTemplate = process.env.EMAIL_TEMPLATE
+                                  .replace('${firstName}', firstName )
+                                  .replace('${fullname}', fullname)
+                                  .replace('${email}', email)
+                                  .replace('${mobileNumber}', mobileNumber)
+                                  .replace('${paymentId}', paymentId)
+                                  .replace('${orderId}',orderId);
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: process.env.EMAIL_SUB,
+        html: populatedTemplate,
+        attachments: [
+          { filename: "payment_receipt.pdf", content: pdfData }
+        ]
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error("Error sending email:", error);
+        } else {
+          console.log("Email sent:", info.response);
+        }
+      });
+    });
+
+    // Add content to the PDF document
+    doc.image("codemind-img/codemind-img.jpeg", 25, 10, {
+      width: 100,
+      height: 100,
+    });
+    doc.moveDown();
+    doc
+      .font("Helvetica-Bold")
+      .fontSize(15)
+      .text("Payment Receipt", { align: "center" });
+
+    // Calculate the position for each row
+    const row1Y = 130;
+    const row2Y = row1Y + 20;
+    const row3Y = row2Y + 20;
+    const row4Y = row3Y + 20;
+    const row5Y = row4Y + 20;
+    const row6Y = row5Y + 20;
+    const row7Y = row6Y + 20;
+    const row8Y = row7Y + 20;
+    const row9Y = row8Y + 20;
+    const row10Y = row9Y + 20;
+    const row11Y = row10Y + 20;
+
+    // Define the column positions
+    const col1X = 50;
+    const col2X = 200;
+
+    doc.font("Helvetica").fontSize(12);
+    doc.text(" Full Name : ", col1X, row1Y);
+    doc.text(name, col2X, row1Y);
+
+    doc.text(" Email : ", col1X, row2Y);
+    doc.text(email, col2X, row2Y);
+
+    doc.text(" Mobile No : ", col1X, row3Y);
+    doc.text(mobileNumber, col2X, row3Y);
+
+    doc.text(" Payment ID : ", col1X, row4Y);
+    doc.text(paymentId, col2X, row4Y);
+
+    doc.text(" Amount Paid : ", col1X, row5Y);
+    doc.text(amountPaid, col2X, row5Y);
+
+    doc.text(" Transaction Date : ", col1X, row6Y);
+    doc.text(transactionDate, col2X, row6Y);
+
+    doc.text(" Event Name  : ", col1X, row7Y);
+    doc.text(eventName, col2X, row7Y);
+
+    doc.text(" Date : ", col1X, row8Y);
+    doc.text(eventDate, col2X, row8Y);
+
+    doc.text(" Location : ", col1X, row9Y);
+    doc.text(eventLocation, col2X, row9Y);
+
+    doc.text(" Order ID : ", col1X, row10Y);
+    doc.text(orderId, col2X,  row10Y);
+
+    // doc.text(" Zoom Link : ", col1X, row10Y);
+    // doc.text(zoomLink, col2X, row10Y);
+
+    // doc.text(" Order ID : ", col1X, row11Y);
+    // doc.text(orderId, col2X, row11Y);
+
+    doc.moveDown();
+    doc.text(
+      "Thank you for your payment. If you have any questions or concerns, feel free to contact us.",
+      50,
+      row11Y + 30
+    );
+    doc.moveDown();
+    doc.moveDown();
+    doc.text("Best regards,", { align: "right" });
+    doc.text("Codemind Technology, Pune", { align: "right" });
+    doc.end();
+
+    return res.redirect("/showdata.html");
+  })
+  .catch((error) => {
+    console.error("Error updating document:", error);
+    if (!res.headersSent) {
+      res.status(500).send("Error updating document: " + error.message);
+    }
+  });
+});
+
+// Razorpay Integration
+app.post('/create-order', async (req, res) => {
+  const razorpayKeyId = process.env.KEY_ID;
+  const razorpayKeySecret = process.env.KEY_SECRET;
+
+  const instance = new Razorpay({
+    key_id: razorpayKeyId,
+    key_secret: razorpayKeySecret,
+  });
+
+  const options = {
+    amount: req.body.amount,
+    currency: req.body.currency,
+  };
+
+  try {
+    const order = await instance.orders.create(options);
+    res.json({ id: order.id, amount: order.amount, currency: order.currency, key: razorpayKeyId });
+  } catch (error) {
+    res.status(500).send("Error creating Razorpay order");
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.set({
+    "Allow-Access-Allow-Origin": "*",
+  });
+  return res.redirect("index.html");
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});*/
+
+//firebase firestore code 
 var express = require("express");
 var bodyParser = require("body-parser");
 // var mongoose = require("mongoose");
