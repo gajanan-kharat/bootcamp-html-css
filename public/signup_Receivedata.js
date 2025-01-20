@@ -6,15 +6,15 @@ function getQueryParam(param) {
 // Retrieve query parameters
 const userName = getQueryParam("name");
 const userEmail = getQueryParam("email");
-const userNumber = getQueryParam("Number");
+const userMobile = getQueryParam("mobile");
 
 
 // Display values in console
 console.log("Name:", userName);
 console.log("Email:", userEmail);
-console.log("Number:", userNumber);
+console.log("Mobile:", userMobile);
 
 // Set retrieved values to HTML elements
 document.getElementById("userName").textContent = userName;
 document.getElementById("userEmail").textContent = userEmail;
-document.getElementById("userNumber").textContent = userNumber;
+document.getElementById("userMobile").textContent = userMobile;
