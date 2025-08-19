@@ -1,23 +1,11 @@
 {
-  "name": "mongodb",
+  "name": "bootcamp-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "firebase": "^10.12.5",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.4",
-    "nodemailer": "^6.9.13",
-    "nodemon": "^3.1.0",
-    "pdfkit": "^0.15.0",
-    "razorpay": "^2.9.4"
+    "start": "npm --prefix backend start",
+    "dev": "npm --prefix backend run dev",
+    "docker:build": "docker build -t bootcamp-app -f backend/Dockerfile .",
+    "docker:up": "docker-compose up --build"
   }
 }
