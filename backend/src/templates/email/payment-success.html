@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -72,4 +72,101 @@
     </div>
 </div>
 </body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Successful - codeDisha</title>
+  <style>
+    body { 
+      font-family: "Nunito", sans-serif; 
+      background-color: #f4f4f4; 
+      margin: 0; 
+      padding: 0; 
+    }
+    .container { 
+      max-width: 600px; 
+      margin: 0 auto; 
+      background-color: #fff; 
+      border: 1px solid #ddd; 
+      border-radius: 10px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    }
+    .header { 
+      background-color: #4CAF50; 
+      color: #fff; 
+      text-align: center; 
+      padding: 20px; 
+      position: relative; 
+    }
+    .header h1 { 
+      margin: 0; 
+      font-size: 24px; 
+    }
+    .content { 
+      padding: 20px; 
+    }
+    .content ul { 
+      list-style: none; 
+      padding-left: 0; 
+    }
+    .content li { 
+      margin-bottom: 8px; 
+    }
+    .footer { 
+      background-color: #f4f4f4; 
+      color: #555; 
+      text-align: center; 
+      padding: 20px; 
+      border-top: 1px solid #ddd; 
+      font-size: 13px; 
+    }
+    a { color: #4CAF50; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Payment Successful</h1>
+    </div>
+    <div class="content">
+      <h2>Dear {{firstName}},</h2>
+      <p>Your payment for <strong>{{eventName}}</strong> has been successfully processed.</p>
+
+      <h3>Enrollment Details:</h3>
+      <ul>
+        <li><strong>Receipt ID :</strong> {{receiptId}}</li>
+        <li><strong>Name :</strong> {{fullname}}</li>
+        <li><strong>Email :</strong> {{email}}</li>
+        <li><strong>Mobile :</strong> {{mobile}}</li>
+        <li><strong>Payment ID :</strong> {{paymentId}}</li>
+        <li><strong>Order ID :</strong> {{orderId}}</li>
+        <li><strong>Amount Paid :</strong> {{amountPaid}}</li>
+      </ul>
+
+      <h3>Event Details:</h3>
+      <ul>
+        <li><strong>Event :</strong> {{eventName}}</li>
+        <li><strong>Date :</strong> {{eventDate}}</li>
+        <li><strong>Location :</strong> {{eventLocation}}</li>
+        <li><strong>Zoom Link :</strong> <a href="{{zoomLink}}">{{zoomLink}}</a></li>
+        <li><strong>WhatsApp Group :</strong> <a href="{{whatsappLink}}" target="_blank">Join Now</a></li>
+      </ul>
+
+      <p style="margin-top:20px;">Thank you for choosing <strong>CodeDisha Technology, Pune!</strong></p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2025 CodeDisha Technology. All rights reserved.</p>
+    </div>
+  </div>
+</body>
 </html>
+
+
+

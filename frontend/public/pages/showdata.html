@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,4 +32,61 @@
         }
 </script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Receipt - codeDisha</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/codeDisha-img/codeDisha.ico">
+  <link rel="stylesheet" href="../css/signup_successful.css">
+</head>
+<body>
+  <div class="signup_section">
+    <div class="signup_info" id="showdataContainer">
+      <div class="signup_title">
+        <h2>🎉 Payment Successful!</h2>
+        <p>A confirmation email has also been sent.</p>
+      </div>
+
+      <p><strong>Receipt ID:</strong> <span id="receiptId"></span></p>
+
+      <h3>👤 Student Details</h3>
+      <p><strong>Name:</strong> <span id="studentName"></span></p>
+      <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+      <p><strong>Mobile:</strong> <span id="studentMobile"></span></p>
+
+      <h3>📅 Event Details</h3>
+      <p><strong>Event:</strong> <span id="eventName"></span></p>
+      <p><strong>Date:</strong> <span id="eventDate"></span></p>
+      <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+      <p><strong>Zoom Link:</strong> <a id="zoomLink" href="#" target="_blank"></a></p>
+
+      <h3>💳 Payment Details</h3>
+      <p><strong>Payment ID:</strong> <span id="paymentId"></span></p>
+      <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+      <p><strong>Status:</strong> <span id="paymentStatus"></span></p>
+      <p><strong>Amount:</strong> <span id="paymentAmount"></span></p>
+      <p><strong>Paid At:</strong> <span id="paidAt"></span></p>
+
+      <div style="margin:20px 0">
+        <a id="whatsappJoin" href="#" target="_blank" class="goToHome-btn">👉 Join WhatsApp Group</a>
+      </div>
+
+      <div class="Home-btn">
+        <button class="goToHome-btn" onclick="goToHome()">Go to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goToHome() {
+      window.location.href = "../index.html";
+    }
+  </script>
+  <script src="../js/showdata.js"></script>
+</body>
 </html>
+
