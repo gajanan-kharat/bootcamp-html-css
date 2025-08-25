@@ -1,0 +1,71 @@
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f8d7da;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.payment_failed_section {
+  background: #fff;
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+  padding: 30px 40px;
+  max-width: 500px;
+  text-align: center;
+  color: #721c24;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  animation: shake 0.3s ease-in-out;
+}
+
+.payment_failed_section h2 {
+  color: #dc3545;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.payment_failed_section .msg {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.actions .btn {
+  margin: 5px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: #dc3545;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.actions .btn:hover {
+  background-color: #c82333;
+}
+
+.actions .supportBtn {
+  background-color: #007bff; 
+}
+
+.actions .supportBtn:hover {
+  background-color: #0056b3;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px);}
+  25% { transform: translateX(-5px);}
+  50% { transform: translateX(5px);}
+  75% { transform: translateX(-5px);}
+  100% { transform: translateX(0px);}
+}

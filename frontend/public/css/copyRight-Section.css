@@ -1,20 +1,26 @@
 .copyright{
-    background-color:rgb(255, 255, 255);
+    background-color:#fff;
     height: 40px;
     width:100%;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
     display: flex;
     justify-content: space-between;   
   }
-.codemide-logo img{
-   margin-left: 40px;
+.codeDisha-logo img{
+  height: 1.8rem;
+  width: auto;
+  display: block;
+  margin-top:5px ;
+   margin-left: 1.25rem;
 }
-.copyright-name {
-    margin-right: 65px;
-    margin-top: 5px; 
+.copyright-text {
+    margin-right: 4rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+     color: #444;
+    margin-top: 5px;
 }
 
-/* For mobile devices (portrait and landscape) */
 @media only screen and (max-width: 767px) {
   .copyright-name {
     font-size: 15px;
@@ -25,12 +31,10 @@
   }
 }
 
-/* For tablets like iPads (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
  
 }
 
-/* For laptops and desktops */
 @media only screen and (min-width: 1025px) {
 }
 

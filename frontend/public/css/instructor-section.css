@@ -154,7 +154,7 @@
     }
   }
 
-  /* For tablets like iPads (portrait and landscape) */
+
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .instructor-section{
         padding-bottom: 0px;
@@ -172,7 +172,7 @@
         
     }
 }  
-  /* For laptops and desktops */
+
 @media only screen and (min-width: 1025px) {
    
   }

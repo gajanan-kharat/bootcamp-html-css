@@ -1,4 +1,4 @@
-.timecount-section{
+.timecount-section {
     text-align: center;
     padding: 45px 20px 80px 0px;
     background-color: #f0f8ff;
@@ -6,11 +6,10 @@
     justify-content: center;
     align-items: center;
 }
-.time-title{
+.time-title {
     font-size: 35px;
     font-weight: bold;
     font-family: "Nunito", sans-serif;
-   
 }
 .time-section{
     display:flex;
@@ -23,36 +22,51 @@
     margin-top: 40px;
 }
 .time{
-    color:rgb(253, 253, 255);
+    color: #fff;
     border: 1px solid rgb(214, 220, 226);
     height: 75px;
     width: 90px;
     margin-left: 20px;
     padding-top: 15px;
     border-radius: 20px;
-    background-color: #ffa500;  
+    background-color: #ffa500;
 }
 .hurry {
     animation: zoom 1s ease-in-out infinite;
     font-weight: bold;
-    color:#6acf18; 
+    color: #6acf18;
     font-size: 35px;
 }
 
 @keyframes zoom {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.time-section.live-mode .time {
+    background-color: #ff0000;  
+    border-color: #ff4d4d;
+}
+.live-label {
+    display: inline-block;
+    background: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-top: 12px;
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @media only screen and (max-width: 360px) {
-    .time-section .time{
+    .time-section .time {
         margin-left: 5px;
         height: 70px;
         width: 80px;
@@ -60,7 +74,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .time-section{
+    .time-section {
         margin-left: 0px;
         height: auto !important;
         width: auto !important;
@@ -68,18 +82,17 @@
     .time-title {
         font-size: 32px;
     }
-    .time{
+    .time {
         margin-left: 5px;
         height: 75px;
         width: 90px;
         padding-top: 10px;
     }
-    .timecount-section{
+    .timecount-section {
         padding-top: 25px;
         padding-right: 5px;
         padding-bottom: 40px;
     }
-
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -92,5 +105,5 @@
     }
 }
 @media only screen and (min-width: 1025px) {
-   
+
 }

@@ -5,7 +5,6 @@
 html{
    scroll-behavior: smooth; 
 }
-/*---------- Hedear Section -------------*/
 header{
     border: 1px solid #000000;
     text-align: center;
@@ -36,20 +35,16 @@ header{
     font-weight: bold;
     transition: transform 0.5s, background-color 1s;
 }
-/* Button hover effect */
 .enroll-btn:hover {
      background: #009378; 
     border: none;
 }
 
-/* Button click effect */
 .enroll-btn:active {
     background-color: #009378; 
     transform: scale(0.9);
-    /* transform-origin: top left;  */
 }
 
-/* .owl-carousel */
 .owl-carousel {
     overflow-x: hidden;
 }
@@ -62,7 +57,7 @@ header{
 .owl-carousel .owl-item img{
     width: 90%;
 }
-/* For mobile devices (portrait and landscape) */
+
 @media only screen and (max-width: 767px) {
     html,body{
         overflow-x: hidden;
@@ -85,11 +80,11 @@ header{
     }
     
  }
-  /* For tablets like iPads (portrait and landscape) */
+
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
  
   }  
-  /* For laptops and desktops */
+
 @media only screen and (min-width: 1025px) {
    
   }

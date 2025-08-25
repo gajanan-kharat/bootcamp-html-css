@@ -20,7 +20,6 @@ body{
 }
 .signup_title{
     text-align: center;
-     /* color: #4ece12;  */
     font-family: "Nunito", sans-serif;
 }
 .signup_title p{
@@ -106,14 +105,14 @@ body{
        
     }
 }
-/* For tablets like iPads (portrait and landscape) */
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .signup_info{
         position:absolute;
         top: 30%;
     }
 }  
-/* For laptops and desktops */
+
 @media only screen and (min-width: 1025px) {
  
 }

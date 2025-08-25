@@ -61,7 +61,6 @@ footer div h5{
     }
 }
    
-/* For mobile devices (portrait and landscape) */
 @media only screen and (max-width: 767px) {
     footer div h3{
         margin-left: 40px;
@@ -80,11 +79,10 @@ footer div h5{
         font-size: 16px;
     }
 }
-/* For tablets like iPads (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   
 }
-/* For laptops and desktops */
+
 @media only screen and (min-width: 1025px) {
     
 }

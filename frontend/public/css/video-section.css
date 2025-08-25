@@ -1,4 +1,4 @@
- /*-----video Section -----*/
+
  .VideoSection{
     text-align: center;
     padding: 30px 20px 20px 20px;
@@ -41,30 +41,13 @@
 .title-section1 .bonuses_title .bonuses{
     font-size: 1.3rem;
     font-weight: bold;
-    /* color:rgb(238, 11, 155); */
     animation: zoom 2.5s ease-in-out infinite;
-  
-
- 
-    /*background: radial-gradient(
-    circle,
-    rgba(13, 8, 96, 1) 0%,
-    rgba(9, 9, 121, 1) 21%,
-    rgba(6, 84, 170, 1) 51%,
-    rgba(0, 255, 113, 1) 100%
-  );*/
-  /*background:linear-gradient(90deg,#04ffd9,#fc00ff);*/
   background:linear-gradient(90deg,#0404ff,#f20477);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-
-    /*background-image: linear-gradient(60deg, #E21143, #FFB03A);
-    background-clip: text;
-    color: transparent;*/
-    
 }
 .title-section1 .bonuses_title #bonuses{
     color: #38e311;

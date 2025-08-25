@@ -1,16 +1,16 @@
-var acc = document.getElementsByClassName("accordion");
-var i;
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        this.parentElement.classList.toggle("active");
+document.addEventListener("DOMContentLoaded", () => {
+  const acc = document.querySelectorAll(".accordion");
+  acc.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      button.parentElement.classList.toggle("active");
 
-        var pannel = this.nextElementSibling;
-
-        if (pannel.style.display === "block") {
-          pannel.style.display = "none";
-        } else {
-          pannel.style.display = "block";
-        }
-      });
-    }
+      const panel = button.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  });
+});

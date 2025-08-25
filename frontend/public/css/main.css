@@ -1,0 +1,26 @@
+@import url('./stylel.css');
+
+/* Sections */
+@import url('./video-section.css');
+@import url('./program-section.css');
+@import url('./stories-section.css');
+@import url('./videomodel.css');
+@import url('./navarrow.css');
+@import url('./doc-section.css');
+@import url('./testimoniaal-box.css');
+@import url('./Whatsapp-section.css');
+@import url('./syllabus-section.css');
+@import url('./instructor-section.css');
+@import url('./photo-section.css');
+@import url('./time-section.css');
+@import url('./faq.css');
+
+/* Footer & Copyright */
+@import url('./copyRight-Section.css');
+@import url('./footer.css');
+
+/* Utilities */
+@import url('./to_Top.css');
+@import url('./popup-section.css');
+@import url('./registration_popup.css');
+@import url('./photo-popup.css');

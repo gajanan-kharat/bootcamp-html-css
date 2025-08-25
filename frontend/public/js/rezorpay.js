@@ -1,122 +1,40 @@
-// document.getElementById('rzp-button1').onclick = async function (e) {
-//   e.preventDefault();
-
-//   try {
-//     const orderResponse = await fetch('/api/payment/create-order', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         amount: 9900,
-//         currency: 'INR'
-//       })
-//     });
-
-//     if (!orderResponse.ok) {
-//       throw new Error('Failed to create order');
-//     }
-
-//     const orderData = await orderResponse.json();
-
-//     var options = {
-//       "key": orderData.key,
-//       "amount": orderData.amount,
-//       "currency": orderData.currency,
-//       "name": "codeDisha Technology",
-//       "description": "Bootcamp Transaction",
-//       "image": "/assets/images/codeDisha-img/codeDisha-image.png",
-//       "order_id": orderData.id,
-//       "handler": function (response) {
-//         // Handle payment success
-//         $.ajax({
-//           type: "POST",
-//           url: "/api/payment/payment_success",
-//           data: {
-//             name: getQueryParam("name"),
-//             email: getQueryParam("email"),
-//             mobile: getQueryParam("mobile"),
-//             paymentId: response.razorpay_payment_id,
-//             orderId: response.razorpay_order_id
-//           },
-//           success: function (data) {
-//             console.log("Data saved successfully:");
-//           },
-//           error: function (error) {
-//             console.error("Error saving data:", error);
-//           }
-//         });
-//         window.location.href = "showdata.html";
-//       },
-//       "prefill": {
-//         "name": userName,
-//         "email": userEmail,
-//         "contact": userMobile
-//       },
-//       "notes": {
-//         "address": "Razorpay Corporate Office"
-//       },
-//       "theme": {
-//         "color": "#3399cc"
-//       }
-//     };
-
-//     var rzp1 = new Razorpay(options);
-//     rzp1.on('payment.failed', function (response) {
-//       console.error("❌ Payment Failed:", response.error);
-//       alert("Payment failed: " + response.error.description);
-//     });
-
-
-//    rzp1.open();
-//   } catch (error) {
-//     console.error('❌ Error during payment:', error);
-//     alert("Unable to initiate payment. Please try again.");
-//   }
-// }
-
-
-// frontend/public/js/rezorpay.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const payBtn = document.getElementById("rzp-button1");
-  if (!payBtn) return; // safe check if button missing
+  if (!payBtn) return;
 
   payBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
     try {
-      // ✅ Step 1: Create Razorpay Order
+      const sd = window.signupData || {};
+      const id = sd.id;
+      const amountPaise = Number(sd?.bootcamp?.fee);
+
+      if (!id || !amountPaise || Number.isNaN(amountPaise)) {
+        alert("Registration not loaded. Refresh page & try again.");
+        return;
+      }
+
       const orderResponse = await fetch("/api/v1/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: 9900, // ideally dynamic: config.bootcamp.fee
-          currency: "INR",
-        }),
+        body: JSON.stringify({ amount: amountPaise, currency: "INR" }),
       });
 
       if (!orderResponse.ok) throw new Error("Failed to create order");
       const orderData = await orderResponse.json();
-
-      // ✅ Step 2: Options for Razorpay SDK
-      const { userName, userEmail, userMobile } = window.signupData || {};
 
       const options = {
         key: orderData.key,
         amount: orderData.amount,
         currency: orderData.currency,
         name: "CodeDisha Technology",
-        description: "Bootcamp Transaction",
+        description: "Bootcamp Enrollment Payment",
         image: "/assets/images/codeDisha-img/codeDisha-image.png",
         order_id: orderData.id,
 
         handler: async function (response) {
-          console.log("✅ Razorpay Success:", response);
-          const { id } = window.signupData;
-
           try {
-            // ✅ Step 3: Tell backend payment is successful
             const successResponse = await fetch("/api/v1/payment/success", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -127,40 +45,49 @@ document.addEventListener("DOMContentLoaded", () => {
               }),
             });
 
-            if (!successResponse.ok) {
-              throw new Error("Backend failed to record payment");
-            }
-
-            // ✅ Auto-follow backend redirect
             if (successResponse.redirected) {
               window.location.href = successResponse.url;
             } else {
-              const result = await successResponse.json();
-              console.log("Payment Success Response:", result);
-              window.location.href = "/pages/showdata.html?id=" + id;
+              window.location.href = `/pages/showdata.html?id=${id}`;
             }
           } catch (err) {
             console.error("❌ Error saving payment:", err);
-            alert("Payment recorded failed. Please contact support.");
+            alert("Payment save failed. Contact support.");
+          } finally {
+            resetBackInterceptor();
           }
         },
 
         prefill: {
-          name: userName || "",
-          email: userEmail || "",
-          contact: userMobile || "",
+          name: sd.name || "",
+          email: sd.email || "",
+          contact: sd.mobile || "",
         },
 
-        notes: { address: "Razorpay Corporate Office" },
         theme: { color: "#3399cc" },
       };
 
-      // ✅ Step 4: Open Razorpay checkout
       const rzp1 = new Razorpay(options);
 
-      rzp1.on("payment.failed", function (response) {
-        console.error("❌ Payment Failed:", response.error);
-        alert("Payment failed: " + response.error.description);
+      rzp1.on("payment.failed", async (response) => {
+        const errorReason = response.error?.description || "razorpay_error";
+        await reportFailureAndRedirect(
+          id,
+          response.error?.metadata?.order_id || orderData.id,
+          errorReason
+        );
+        resetBackInterceptor();
+      });
+
+      rzp1.on("modal.closed", async () => {
+        console.warn("⚠️ Razorpay modal closed (user action)");
+        await reportFailureAndRedirect(id, orderData.id, "closed_by_user");
+        resetBackInterceptor();
+      });
+
+      interceptBackButton(() => {
+        console.warn("⚠️ Back button pressed while Razorpay open");
+        reportFailureAndRedirect(id, orderData.id, "closed_by_browser_back");
       });
 
       rzp1.open();
@@ -171,4 +98,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+async function reportFailureAndRedirect(id, orderId, errorReason) {
+  try {
+    const resp = await fetch("/api/v1/payment/failure", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, orderId, errorReason }),
+    });
 
+    if (resp.redirected) {
+      window.location.href = resp.url;
+    } else {
+      window.location.href = `/pages/payment_failed.html?id=${id}`;
+    }
+  } catch (e) {
+    console.error("❌ Failed reporting failure:", e);
+    window.location.href = `/pages/payment_failed.html?id=${id}`;
+  }
+}
+
+let backInterceptorActive = false;
+
+function interceptBackButton(onBack) {
+  if (backInterceptorActive) return;
+  backInterceptorActive = true;
+
+  window.history.pushState({ razorpayCheckout: true }, "", window.location.href);
+
+  window.onpopstate = (event) => {
+    if (event.state && event.state.razorpayCheckout) {
+      onBack();
+    }
+  };
+}
+
+function resetBackInterceptor() {
+  if (!backInterceptorActive) return;
+  backInterceptorActive = false;
+  window.onpopstate = null;
+  window.history.go(1);
+}

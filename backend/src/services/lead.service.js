@@ -1,11 +1,9 @@
-// src/services/lead.service.js
 import { db } from "../config/firebase.js";
 import { config } from "../config/config.js";
 
 const collection = config.firebase.collection;
 
 export const LeadService = {
-  /** Create new lead (signup) */
   createLead: async (data) => {
     try {
       const docRef = await db.collection(collection).add(data);
@@ -17,12 +15,11 @@ export const LeadService = {
     }
   },
 
-  /** Update payment info by email (fall‑back, assumes unique email) */
   updatePaymentByEmail: async (email, updateData) => {
     try {
       const snap = await db
         .collection(collection)
-        .where("email", "==", email)
+        .where("student.email", "==", email)
         .limit(1)
         .get();
 
@@ -34,15 +31,14 @@ export const LeadService = {
       const docRef = snap.docs[0].ref;
       await docRef.set(updateData, { merge: true });
 
-      console.log("✅ Payment updated for lead email:", email);
+      console.log("✅ Payment updated for lead:", email);
       return docRef.id;
     } catch (err) {
-      console.error("❌ Error updating payment by email:", err);
+      console.error("❌ Error updating payment:", err);
       throw err;
     }
   },
 
-  /** Update by Firestore document ID (safer for future) */
   updatePaymentById: async (id, updateData) => {
     try {
       const docRef = db.collection(collection).doc(id);
@@ -55,18 +51,15 @@ export const LeadService = {
     }
   },
 
-  /** Get a lead by email */
   getLeadByEmail: async (email) => {
-    const snap = await db.collection(collection).where("email", "==", email).limit(1).get();
+    const snap = await db.collection(collection).where("student.email", "==", email).limit(1).get();
     if (snap.empty) return null;
     const doc = snap.docs[0];
     return { id: doc.id, ...doc.data() };
   },
 
-  /** Get a lead by Firestore document ID */
   getLeadById: async (id) => {
     const doc = await db.collection(collection).doc(id).get();
     return doc.exists ? { id: doc.id, ...doc.data() } : null;
   },
 };
-

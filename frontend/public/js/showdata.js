@@ -1,12 +1,10 @@
-// frontend/public/js/showdata.js
-
 document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.getElementById("showdataContainer");
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
+  const container = document.querySelector(".receipt");
 
   if (!id) {
-    container.innerHTML = "<p>❌ No ID found in URL</p>";
+    if (container) container.innerHTML = "<p>❌ No ID found in URL</p>";
     return;
   }
 
@@ -14,40 +12,56 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`/api/v1/payment/receipt/${id}`);
     const result = await res.json();
 
-    if (!result.success) throw new Error(result.message);
+    if (!result.success) throw new Error(result.message || "Failed to fetch receipt");
 
-    const { id: receiptId, name, email: userEmail, mobile, bootcamp, payment } = result.data;
+    const lead = result.data || {};
+    const { student = {}, bootcamp = {}, payment = {} } = lead;
 
-    // ✅ Populate Receipt ID
-    document.getElementById("receiptId").textContent = receiptId;
+    const setText = (elementId, text) => {
+      const el = document.getElementById(elementId);
+      if (el) el.textContent = text || "";
+    };
 
-    // ✅ Student details
-    document.getElementById("studentName").textContent = name;
-    document.getElementById("studentEmail").textContent = userEmail;
-    document.getElementById("studentMobile").textContent = mobile;
+    setText("receiptId", lead.id || id);
 
-    // ✅ Event details (SSOT from backend)
-    document.getElementById("eventName").textContent = bootcamp.name;
-    document.getElementById("eventDate").textContent = bootcamp.date;
-    document.getElementById("eventLocation").textContent = bootcamp.location;
-    document.getElementById("zoomLink").textContent = bootcamp.zoomLink;
-    document.getElementById("zoomLink").href = bootcamp.zoomLink;
+    setText("studentName", student.name);
+    setText("studentEmail", student.email);
+    setText("studentMobile", student.mobile);
 
-    // ✅ Payment details
-    document.getElementById("paymentId").textContent = payment.paymentId || "N/A";
-    document.getElementById("orderId").textContent = payment.orderId || "N/A";
-    document.getElementById("paymentStatus").textContent = payment.status;
-    document.getElementById("paymentAmount").textContent = `${payment.amount / 100} ${payment.currency}`;
-    document.getElementById("paidAt").textContent = payment.paidAt
-      ? new Date(payment.paidAt).toLocaleString()
-      : "N/A";
+    setText("eventName", bootcamp.name);
+    setText("eventDate", bootcamp.date);
+    setText("eventLocation", bootcamp.location);
+    const zoomEl = document.getElementById("zoomLink");
+    if (zoomEl) {
+      zoomEl.textContent = bootcamp.zoomLink || "";
+      zoomEl.href = bootcamp.zoomLink || "#";
+    }
 
-    // ✅ WhatsApp group
-    document.getElementById("whatsappJoin").href = bootcamp.whatsappLink;
+    setText("paymentId", payment.paymentId || "N/A");
+    setText("orderId", payment.orderId || "N/A");
+    const amountVal = `${(payment.amount || bootcamp.fee || 0) / 100} ${payment.currency || bootcamp.currency || "INR"}`;
+    setText("paymentAmount", amountVal);
+    setText("paidAt", payment.paidAt ? new Date(payment.paidAt).toLocaleString() : "N/A");
 
+    const badge = document.getElementById("paymentStatus");
+    if (badge) {
+      const statusRaw = (payment.status || "").toLowerCase();
+      let label = "Status";
+      if (statusRaw.includes("success") || statusRaw.includes("paid")) {
+        label = "Success";
+        badge.classList.remove("failed");
+      } else if (statusRaw.includes("fail")) {
+        label = "Failed";
+        badge.classList.add("failed");
+      } else {
+        label = payment.status || "N/A";
+        badge.classList.remove("failed");
+      }
+      badge.textContent = label.toUpperCase();
+    }
   } catch (err) {
     console.error("❌ Error loading receipt:", err);
-    container.innerHTML = `<p>Error fetching receipt: ${err.message}</p>`;
+    if (container) container.innerHTML = `<p>Error fetching receipt: ${err.message}</p>`;
   }
 });
 

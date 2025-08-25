@@ -115,7 +115,6 @@
 @media only screen and (max-width: 767px) {
 }
 
-/* For tablets like iPads (portrait and landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .name-user strong {
         color: #3d3d3d;
@@ -157,7 +156,6 @@
     }
  }
 
-/* For laptops and desktops */
 @media only screen and (min-width: 1025px) {
  
 }
